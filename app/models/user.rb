@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :jobs
   has_many :resumes
+  has_many :blogs
 end

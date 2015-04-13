@@ -1,0 +1,51 @@
+  <header class="main-header">
+    <div class="container">
+      <div class="text-center logo no-margin-bottom"> <a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a></div>
+      <h3 class="color-white text-center ">Articles &amp; Blog</h3>
+      <div class="white-space-50"></div>
+    </div>
+  </header><!-- end main-header -->
+
+
+  <!-- body-content -->
+  <div class="body-content clearfix" >
+
+    <!-- blog block -->
+    <div class="bg-color1 block-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+
+            <!-- blog list -->
+            <div class="blog-list">
+
+              <!-- blog item -->
+              <% @blogs.each do |blog| %>
+              <div class="blog-item">
+                <h2 class="blog-title"><a href="blog_single_post.html" ><%= blog.title %></a></h2>
+                <div class="blog-meta">February 27, 2015 by <a href="#">William Frierson</a></div>
+                <div class="blog-img">
+                  <img src="./assets/theme/images/home-bg.jpg" alt="" class="img-full ">
+                </div>
+                <p><%= blog.description %></p>
+                <p class="blog-links"><a href="blog_single_post.html" class="btn btn-theme btn-line soft ">Continue Reading &nbsp; &rarr;</a></p>
+              </div><!-- end blog item -->
+                  <% end %>
+
+            </div><!-- end blog list -->
+
+            <!-- pager -->
+            <nav>
+              <ul class="pager">
+                <li class="previous"><a href="#" class="btn-theme btn-lg"><span aria-hidden="true">&larr;</span> Older</a></li>
+                <li class="next"><a href="#" class="btn-theme btn-lg">Newer <span aria-hidden="true">&rarr;</span></a></li>
+              </ul>
+            </nav><!-- end pager -->
+
+
+          </div>
+        </div>
+      </div>
+    </div><!-- end blog block -->
+  </div><!--end body-content -->
+
