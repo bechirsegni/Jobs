@@ -1,0 +1,211 @@
+  <header class="main-header">
+    <div class="container">
+      <div class="text-center logo"> <a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a></div>
+    </div>
+  </header><!-- end main-header -->
+  <!-- body-content -->
+  <div class="body-content clearfix" >
+
+    <div class="bg-color2 block-section line-bottom">
+      <div class="container">
+        <h1 class="text-center no-margin">Post a Job</h1>
+      </div>
+    </div>
+
+    <div class="bg-color1 block-section line-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+
+            <!-- form post a job -->
+            <%= form_for @job, :multipart => true do |f| %>
+              <div class="form-group">
+                <label>Company Name</label>
+                <%= f.text_field :company, :class => 'form-control' ,placeholder:'Enter Company Name'%>
+              </div>
+              <div class="form-group">
+                <label>Job title</label>
+                <%= f.text_field :title, :class => 'form-control' ,placeholder:'Enter Job Title'%>
+              </div>
+              <div class="form-group">
+                <label>Job description</label>
+                <div class="color-white-mute"><small>Describe the responsibilities of this job, required work experience, skills, or education.</small></div>
+                <%= f.text_area :description, :class => 'form-control' ,placeholder:'Enter Job Description'%>
+                <small class="color-white-mute">Formatting Options:    ##heading      *bold*          _italic_          * bulleted list</small>
+              </div>
+              <div class="form-group">
+                <label>Locations (optional)</label>
+                <%= f.text_field :location, :class => 'form-control' ,placeholder:'Enter Location'%>
+              </div>
+
+              <!-- checkboxs -->
+              <div class="form-group">
+                <label>Job Categories</label>
+                <div class="row clearfix">
+                  <div class="col-md-4">
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Accounting
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Admin & HR
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Banking  /  Finance
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Beauty Care  /  Health
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Building & Construction
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Design
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Education
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Engineering
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Hospitality  /  F & B
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Information Technology (IT)
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Insurance
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Management
+                      </label>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Manufacturing
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Media & Advertising
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Property
+                      </label>
+                    </div>
+                    <div class="checkbox flat-checkbox">
+                      <label>
+                        <input type="checkbox">
+                        <span class="fa fa-check"></span>
+                        Others
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- end checkboxs -->
+
+
+              <div class="form-group">
+                <label>Salary (optional)</label>
+                <div class="row clearfix">
+                  <div class="col-xs-6">
+                    <%= f.text_field :salary, :class => 'form-control' ,placeholder:'Example: 50,000.00'%>
+                  </div>
+                  <div class="col-xs-6">
+                    <select class="form-control">
+                      <option>per hour</option>
+                      <option>per day</option>
+                      <option>per week</option>
+                      <option>per month</option>
+                      <option>per year</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Experience (optional)</label>
+                <div class="row clearfix">
+                  <div class="col-xs-6">
+                    <%= f.text_field :experience, :class => 'form-control' ,placeholder:'Example: Accounting'%>
+                  </div>
+                  <div class="col-xs-6">
+                    <select class="form-control">
+                      <option>1 year</option>
+                      <option>2 years</option>
+                      <option>3 years</option>
+                      <option>4 years</option>
+                      <option>5 years</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              <p>Applications will be emailed to: <a href="#">your@email.com</a> – <a href="#">change email</a></p>
+
+              <div class="form-group ">
+                <%= f.submit 'Submit', class:'btn btn-t-primary btn-theme'%>
+              </div>
+            <% end %> <!-- end form post a job -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--end body-content -->
