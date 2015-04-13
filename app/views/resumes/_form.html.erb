@@ -1,0 +1,23 @@
+<%= form_for @resume, :multipart => true do |f| %>
+    <%= f.label :title%> <br/>
+    <%= f.text_area :title%>
+    <%= f.label :role%> <br/>
+    <%= f.text_area :role%>
+    <%= f.label :location%> <br/>
+    <%= f.text_area :location%>
+    <%= f.label :date%> <br/>
+    <%= f.text_area :date%>
+    <%= f.label :description%> <br/>
+    <%= f.text_field :description%>
+    <%= f.label :edu_title%> <br/>
+    <%= f.text_area :edu_title%>
+    <%= f.label :edu_date%> <br/>
+    <%= f.text_area :edu_date%>
+    <%= f.label :edu_location%> <br/>
+    <%= f.text_area :edu_location%>
+    <%= f.label :edu_description%> <br/>
+    <%= f.text_field :edu_description%>
+    <%= f.label :additional%> <br/>
+    <%= f.text_area :additional%>
+    <%= f.submit 'Submit Your CV'%>
+<% end %>
