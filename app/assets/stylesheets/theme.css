@@ -1371,11 +1371,11 @@ a:focus {
   }
 }
 .main-header .hero-header {
-  background: url(../images/home-bg.jpg) center no-repeat;
+  background: url('home-bg.jpg') center no-repeat;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
-  background-size: 100%;
+  background-size: 10%;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1402,7 +1402,7 @@ a:focus {
 .main-header .hero-header:after {
   content: "";
   position: absolute;
-  background: url(../images/home-bgblur.jpg) center no-repeat;
+  background: url('home-bgblur.jpg') center no-repeat;
   -webkit-background-size: 100%;
   -moz-background-size: 100%;
   -o-background-size: 100%;
@@ -1465,7 +1465,7 @@ a:focus {
 }
 .main-header .form-search-home:before {
   content: "";
-  background: url(../images/cloud-1.png) no-repeat;
+  background: url('cloud-1.png') no-repeat;
   position: absolute;
   width: 235px;
   height: 110px;
@@ -1474,7 +1474,7 @@ a:focus {
 }
 .main-header .form-search-home:after {
   content: "";
-  background: url(../images/cloud-2.png) no-repeat;
+  background: url('cloud-2.png') no-repeat;
   position: absolute;
   width: 235px;
   height: 110px;
