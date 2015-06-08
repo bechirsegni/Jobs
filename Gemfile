@@ -2,7 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
 gem 'better_errors', '~> 2.1.1'
-
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -15,10 +14,11 @@ gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
 gem 'modernizr-rails', '~> 2.7.1'
 gem 'ie_conditional_tag'
+gem 'omniauth-facebook', '~> 2.0.1'
+gem 'omniauth-google-oauth2', '~> 0.2.6'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'spring'
   gem 'mysql2'
 end
 
