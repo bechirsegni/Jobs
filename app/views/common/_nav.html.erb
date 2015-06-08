@@ -9,12 +9,31 @@
         <li><%= link_to ("<strong>Home</strong>").html_safe, root_path%> </li>
         <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
         <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
-        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_path%> </li>
+        <li><%= link_to ("<strong>Employers</strong>").html_safe, employers_url%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url%> </li>
+        <li><%= link_to ("<strong>Contact us</strong>").html_safe, contacts_url%> </li>
+
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="link-btn"><a href="login"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
-        <li class="link-btn"><a href="register"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
-      </ul>
+      <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
+                <%=image_tag '4.jpg', class: 'img-profile'%> &nbsp; <%= current_user.email%> <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="my_alerts.html"> My Alerts </a></li>
+                <li><a href="my_notifications.html"> Notifications <span class="badge ">5</span></a></li>
+                <li><a href="change_password.html"> Change Password</a></li>
+              </ul>
+            </li>
+            <li class="link-btn"><a href="logout"><span class="btn btn-theme  btn-pill btn-xs btn-line">Logout</span></a></li>
+          </ul>
+       <% else %>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="link-btn"><a href="login"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
+            <li class="link-btn"><a href="register"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+          </ul>
+      <%end%>
     </div>
   </div>
 </nav><!-- end main navbar -->
@@ -22,6 +41,24 @@
 <!-- mobile navbar -->
 <div class="container">
   <nav class="mobile-nav hidden-md hidden-lg">
+    <%if user_signed_in?%>
+
+        <ul class="nav navbar-nav nav-block-left">
+          <li class="dropdown">
+            <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
+              <%=image_tag '4.jpg', class: 'img-profile'%> &nbsp; <%= current_user.email%> <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="my_alerts.html"> My Alerts </a></li>
+              <li><a href="my_notifications.html"> Notifications <span class="badge ">5</span></a></li>
+              <li><a href="change_password.html"> Change Password</a></li>
+              <li><a href="logout"> Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+        <%end%>
+
+
     <a href="#" class="btn-nav-toogle first">
       <span class="bars"></span>
       Menu
@@ -37,9 +74,15 @@
         <li><%= link_to ("<strong>Home</strong>").html_safe, root_path%> </li>
         <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
         <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
-        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_path%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url%> </li>
+        <li><%= link_to ("<strong>Employers</strong>").html_safe, employers_url%> </li>
+        <li><%= link_to ("<strong>Contact us</strong>").html_safe, contacts_url%> </li>
+
+        <%if user_signed_in?%>
+            <%else%>
         <li><a href="login"><strong>Login</strong></a></li>
         <li><a href="register"><strong>Register</strong></a></li>
+            <%end%>
       </ul>
     </div>
   </nav>

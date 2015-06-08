@@ -5,8 +5,10 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'
-  get 'contact', to: 'home#contact'
+  get 'employers', to: 'home#employers'
 
+  get 'contacts', to: 'contacts#new'
+  post 'contacts', to: 'contacts#create'
 
   devise_for :users , :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
   devise_scope :user do

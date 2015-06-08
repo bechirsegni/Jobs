@@ -16,10 +16,12 @@ gem 'modernizr-rails', '~> 2.7.1'
 gem 'ie_conditional_tag'
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
+gem 'mail_form'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'mysql2'
+  gem 'spring', '~> 1.3.6'
 end
 
 

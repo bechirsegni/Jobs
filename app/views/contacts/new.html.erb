@@ -1,10 +1,10 @@
 <header class="main-header">
-<div class="container">
-  <div class="text-center logo no-margin-bottom">
-    <a href="index.html"><%= image_tag 'logo.png'%></a></div>
-  <h3 class="color-white text-center ">Contact Us</h3>
-  <div class="white-space-50"></div>
-</div>
+  <div class="container">
+    <div class="text-center logo no-margin-bottom">
+      <a href="index.html"> <%= image_tag 'logo.png'%></a></div>
+    <h3 class="color-white text-center ">Contact Us</h3>
+    <div class="white-space-50"></div>
+  </div>
 </header><!-- end main-header -->
 
 <!-- body-content -->
@@ -18,24 +18,25 @@
       <div class="row">
         <div class="col-md-8 col-md-offset-2">
           <!-- form contact -->
-          <form>
-            <div class="form-group">
-              <label>Email</label>
-              <input type="email" class="form-control" value="your@email.com" readonly="readonly">
-            </div>
-            <div class="form-group">
-              <label>Subject</label>
-              <input type="text" class="form-control" >
-            </div>
-            <div class="form-group">
-              <label>Message</label>
-              <textarea class="form-control" rows="6"></textarea>
-            </div>
-            <div class="form-group text-center">
-              <div class="white-space-10"></div>
-              <button type="submit" class="btn btn-theme btn-lg btn-long btn-t-primary btn-pill">Send</button>
-            </div>
-          </form><!-- end form contact -->
+           <%= form_for @contact, :html => {:class => 'form-horizontal' } do |f| %>
+
+              <div class="form-group">
+                <label>Email</label>
+                <%= f.email_field :email ,class:'form-control' %>
+              </div>
+              <div class="form-group">
+                <label>Subject</label>
+                <%= f.text_field :subject, class:'form-control'%>
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <%= f.text_area :message, class:'form-control', rows:'6'%>
+              </div>
+              <div class="form-group text-center">
+                <div class="white-space-10"></div>
+                <%= f.submit 'Send', class:'btn btn-theme btn-lg btn-long btn-t-primary btn-pill'%>
+              </div>
+              <%end%> <!-- end form contact -->
 
           <div class="white-space-10"></div>
           <p class="text-center"><span class="span-line">OR</span></p>
