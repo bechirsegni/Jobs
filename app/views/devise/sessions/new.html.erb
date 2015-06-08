@@ -39,10 +39,8 @@
   <% if devise_mapping.rememberable? -%>
     <div class="row">
       <div class="col-xs-6">
-    <div class="checkbox flat-checkbox">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me, class: 'fa fa-check' %>
-    </div>
+      <%= f.label :remember_me%>
         </div>
         </div>
   <% end -%>
@@ -53,7 +51,7 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+      <div><a href="password" ><strong>Forget Your Password ?</strong></a></div>
 
 
 
@@ -63,7 +61,7 @@
         </div>
 
         <div class="white-space-20"></div>
-        <div class="text-center color-white">Not a member? &nbsp; <a href="#" class="link-white"><strong>Create an account free</strong></a></div>
+        <div class="text-center color-white">Not a member? &nbsp; <a href="register" class="link-white"><strong>Create an account free</strong></a></div>
       </div>
     </div>
 

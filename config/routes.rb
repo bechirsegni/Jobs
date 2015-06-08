@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'
+  get 'contact', to: 'home#contact'
+
 
   devise_for :users
   devise_scope :user do
@@ -12,6 +14,7 @@ Rails.application.routes.draw do
     post 'login', :to => 'devise/sessions#new'
     get 'register', :to => 'devise/registrations#new'
     get 'logout', to: 'devise/sessions#destroy'
+    get 'password', to: 'devise/passwords#new'
   end
 
   root 'home#index'

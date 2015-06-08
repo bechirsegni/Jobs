@@ -6,35 +6,14 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
       <ul class="nav navbar-nav">
-        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
-        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
-        <li  class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Pages <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="blog.html">Articles &amp; Blog</a></li>
-            <li><a href="terms_privacy.html">Terms &amp; Privacy</a></li>
-            <li><a href="error_404.html">Error 404</a></li>
-            <li><a href="shortcode.html">Short Code</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Features <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="job_list.html">Find a Job</a></li>
-            <li><a href="job_details.html">Job Details</a></li>
-            <li><a href="resume_list.html">Find Resumes</a></li>
-            <li><a href="resume_details.html">Resume Details</a></li>
-            <li><a href="job_post_2.html">Post a Job</a></li>
-            <li><a href="company_page.html">Company Profile</a></li>
-          </ul>
-        </li>
+        <li><%= link_to ("<strong>Home</strong>").html_safe, root_path%> </li>
+        <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
+        <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_path%> </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li class="link-btn"><a href="login.html"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
-        <li class="link-btn"><a href="register.html"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
+        <li class="link-btn"><a href="login"><span class="btn btn-theme btn-pill btn-xs btn-line">Login</span></a></li>
+        <li class="link-btn"><a href="register"><span class="btn btn-theme  btn-pill btn-xs btn-line">Register</span></a></li>
       </ul>
     </div>
   </div>
@@ -55,33 +34,12 @@
       </a>
 
       <ul class="nav navbar-nav">
-        <li class=""><a href="job_list.html"><strong>Find a Job</strong></a></li>
-        <li class=""><a href="resume_list.html"><strong>Find Resumes</strong></a></li>
-        <li  class=""><a href="job_post_1.html"><strong>Post a Job</strong></a></li>
-        <li><a href="login.html"><strong>Login</strong></a></li>
-        <li><a href="register.html"><strong>Register</strong></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Pages <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-            <li><a href="blog.html">Articles &amp; Blog</a></li>
-            <li><a href="terms_privacy.html">Terms &amp; Privacy</a></li>
-            <li><a href="error_404.html">Error 404</a></li>
-            <li><a href="shortcode.html">Short Code</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Features <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="job_list.html">Find a Job</a></li>
-            <li><a href="job_details.html">Job Details</a></li>
-            <li><a href="resume_list.html">Find Resumes</a></li>
-            <li><a href="resume_details.html">Resume Details</a></li>
-            <li><a href="job_post_2.html">Post a Job</a></li>
-            <li><a href="company_page.html">Company Profile</a></li>
-          </ul>
-        </li>
+        <li><%= link_to ("<strong>Home</strong>").html_safe, root_path%> </li>
+        <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
+        <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_path%> </li>
+        <li><a href="login"><strong>Login</strong></a></li>
+        <li><a href="register"><strong>Register</strong></a></li>
       </ul>
     </div>
   </nav>
