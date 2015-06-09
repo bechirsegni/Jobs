@@ -19,6 +19,7 @@ gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'mail_form'
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'newrelic_rpm', '~> 3.12.0.288'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
