@@ -192,25 +192,26 @@
 
               <!-- form get alert -->
               <div class="get_alert">
-                <h4>Get email updates for the latest <span class=" ">PHP jobs in United States</span></h4>
-                <form>
-                  <div class="row">
-                    <div class="col-md-9">
-                      <div class="form-group">
-                        <label>My Email</label>
-                        <input class="form-control" placeholder="Enter Email">
+                <h4>Get new Jobs for this search by email</h4>
+                <%= form_for @newsletter  do |f| %>
+                    <div class="row">
+                      <div class="col-md-9">
+                        <div class="form-group">
+                          <label>My Email</label>
+                          <%= f.email_field :email ,class: 'form-control', placeholder:'Enter Email'%>
+                        </div>
+                      </div>
+                      <div class="col-md-3">
+                        <div class="form-group">
+                          <label class="hidden-sm hidden-xs ">&nbsp;</label>
+                          <%= f.submit 'Activate', class:'btn btn-theme btn-success btn-block' %>
+                        </div>
                       </div>
                     </div>
-                    <div class="col-md-3">
-                      <div class="form-group">
-                        <label class="hidden-sm hidden-xs ">&nbsp;</label>
-                        <button class="btn btn-theme btn-success btn-block">Activate</button>
-                      </div>
-                    </div>
-                  </div>
-                  <small>You can cancel email alerts at any time.</small>
-                </form>
-              </div><!-- end form get alert -->
+                    <small>You can cancel email alerts at any time.</small>
+                <%end%>
+              </div><!-- end form get alert  -->
+              <!-- end form get alert -->
 
               <!-- pagination -->
               <nav >

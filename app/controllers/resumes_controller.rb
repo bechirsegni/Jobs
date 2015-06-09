@@ -6,6 +6,7 @@ class ResumesController < ApplicationController
 
   def index
     @resumes = Resume.all
+    @newsletter = Newsletter.new
   end
 
   def show

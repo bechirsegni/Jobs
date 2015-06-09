@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+
   resources :blogs
   resources :jobs
   resources :resumes
+  resources :newsletters
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'

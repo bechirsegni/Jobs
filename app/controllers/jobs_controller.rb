@@ -6,6 +6,7 @@ class JobsController < ApplicationController
 
   def index
     @jobs = Job.all
+    @newsletter = Newsletter.new
   end
 
   def show
