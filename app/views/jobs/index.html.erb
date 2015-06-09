@@ -176,7 +176,7 @@
                     <div class="col-md-1 hidden-sm hidden-xs"><div class="img-item">
                       <%=image_tag '1.jpg'%></div></div>
                     <div class="col-md-11">
-                      <h3 class="no-margin-top"><a href="job_details.html" class=""><%=job.title%> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+                      <h3 class="no-margin-top"><a class=""><%=job.title%> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
                       <h5><span class="color-black"><%=job.company%></span> - <span class="color-white-mute"><%=job.location%></span></h5>
                       <p class="text-truncate "><%=job.description%></p>
                       <div>
@@ -212,29 +212,17 @@
                 <%end%>
               </div><!-- end form get alert  -->
               <!-- end form get alert -->
-
               <!-- pagination -->
+
               <nav >
                 <ul class="pagination pagination-theme  no-margin">
                   <li>
-                    <a href="#" aria-label="Previous">
-                      <span aria-hidden="true">&larr;</span>
-                    </a>
-                  </li>
-                  <li class="active"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><span>...</span></li>
-                  <li><a href="#">50</a></li>
-                  <li>
-                    <a href="#" aria-label="Next">
-                      <span aria-hidden="true">&rarr;</span>
-                    </a>
+                    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails ,class:'pagination-theme' %>
                   </li>
                 </ul>
               </nav><!-- pagination -->
 
             </div><!-- end box listing -->
-
 
           </div>
           <div class="col-md-3">

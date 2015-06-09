@@ -33,15 +33,14 @@
                   <% end %>
 
             </div><!-- end blog list -->
-
             <!-- pager -->
-            <nav>
-              <ul class="pager">
-                <li class="previous"><a href="#" class="btn-theme btn-lg"><span aria-hidden="true">&larr;</span> Older</a></li>
-                <li class="next"><a href="#" class="btn-theme btn-lg">Newer <span aria-hidden="true">&rarr;</span></a></li>
+            <div class="text-center">
+              <ul class="pagination pagination-theme  no-margin">
+                <li>
+                  <%= will_paginate @blogs, renderer: BootstrapPagination::Rails ,class:'pagination-theme' %>
+                </li>
               </ul>
-            </nav><!-- end pager -->
-
+            </div><!-- pagination -->
 
           </div>
         </div>

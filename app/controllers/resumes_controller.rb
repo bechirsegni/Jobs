@@ -5,7 +5,7 @@ class ResumesController < ApplicationController
 
 
   def index
-    @resumes = Resume.all
+    @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
     @newsletter = Newsletter.new
   end
 

@@ -5,7 +5,7 @@ class JobsController < ApplicationController
 
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
     @newsletter = Newsletter.new
   end
 
