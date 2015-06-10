@@ -15,4 +15,5 @@
 //= require bootstrap
 //= require magnific-popup
 //= require theme
+//= require ckeditor/init
 //= require turbolinks

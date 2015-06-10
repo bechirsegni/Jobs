@@ -3,9 +3,8 @@ class ResumesController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
-
   def index
-    @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 6)
+    @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
     @newsletter = Newsletter.new
   end
 

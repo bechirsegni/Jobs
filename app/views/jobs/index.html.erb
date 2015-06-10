@@ -178,7 +178,7 @@
                     <div class="col-md-11">
                       <h3 class="no-margin-top"><a class=""><%=job.title%> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
                       <h5><span class="color-black"><%=job.company%></span> - <span class="color-white-mute"><%=job.location%></span></h5>
-                      <p class="text-truncate "><%=job.description%></p>
+                      <p class="text-truncate "><%=job.description.body.html_safe%></p>
                       <div>
                         <span class="color-white-mute"><%= localize(job.created_at) %></span> -
                         <a href="#need-login" data-toggle="modal" class="btn btn-xs btn-theme btn-default">save job</a> -

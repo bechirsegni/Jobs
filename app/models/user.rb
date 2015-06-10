@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
     end
   end
 
-  has_many :jobs
-  has_many :resumes
-  has_many :blogs
+  has_many :jobs , dependent: :destroy
+  has_many :resumes , dependent: :destroy
+  has_many :blogs , dependent: :destroy
+
 end

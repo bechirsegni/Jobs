@@ -47,6 +47,14 @@ GEM
     builder (3.2.2)
     byebug (4.0.5)
       columnize (= 0.9.0)
+    cancan (1.6.10)
+    ckeditor (4.1.2)
+      cocaine
+      orm_adapter (~> 0.5.0)
+    climate_control (0.0.3)
+      activesupport (>= 3.0)
+    cocaine (0.5.7)
+      climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -201,6 +209,8 @@ PLATFORMS
 DEPENDENCIES
   better_errors (~> 2.1.1)
   byebug
+  cancan
+  ckeditor (~> 4.1.2)
   coffee-rails (~> 4.1.0)
   devise (~> 3.4.1)
   font-awesome-rails (~> 4.3.0.0)
