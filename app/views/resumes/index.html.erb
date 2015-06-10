@@ -11,6 +11,7 @@
         </div>
         <div class="col-md-8">
 
+
           <!-- form search  -->
           <form class="form-search-list">
             <div class="row">
@@ -125,8 +126,13 @@
 
     </div><!-- end form search area-->
   </header><!-- end main-header -->
-
-
+  <%= form_for resumes_path, method: :get do |f| %>
+      <p>
+        <%= f.label "Search for", class:'color-white' %>
+        <%= text_field_tag :query, params[:query] , class:'form-control' %>
+        <%= submit_tag "Go", name: nil %>
+      </p>
+  <% end %>
   <!-- body-content -->
   <div class="body-content clearfix" >
 

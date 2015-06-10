@@ -3,10 +3,17 @@ class JobsController < ApplicationController
   before_filter :authenticate_user!, except: [:index, :show]
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
-
   def index
-    @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
+    if params[:query].present?
+      @jobs = Job.search(params[:query], page: params[:page])
+    else
+      @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8).page params[:page]
+    end
     @newsletter = Newsletter.new
+  end
+
+  def autocomplete
+    render json: Job.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def show

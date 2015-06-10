@@ -4,8 +4,16 @@ class ResumesController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
+    if params[:query].present?
+      @resumes = Resume.search(params[:query], page: params[:page])
+    else
+      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10).page params[:page]
+    end
     @newsletter = Newsletter.new
+  end
+
+  def autocomplete
+    render json: Resume.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def show
@@ -43,6 +51,7 @@ class ResumesController < ApplicationController
       redirect_to resume_path
     end
   end
+
 
   private
 

@@ -11,7 +11,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.4.1'
-gem 'cancan'
 
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
@@ -25,8 +24,10 @@ gem 'mail_form'
 
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
-gem 'ckeditor'
-gem 'paperclip'
+
+gem 'searchkick', '~> 0.9.0'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 gem 'newrelic_rpm', '~> 3.12.0.288'
 

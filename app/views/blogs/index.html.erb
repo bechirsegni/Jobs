@@ -5,7 +5,13 @@
       <div class="white-space-50"></div>
     </div>
   </header><!-- end main-header -->
-
+  <%= form_for jobs_path, method: :get do |f| %>
+      <p>
+        <%= f.label "Search for" %>
+        <%= text_field_tag :query, params[:query] %>
+        <%= submit_tag "Go", name: nil %>
+      </p>
+  <% end %>
 
   <!-- body-content -->
   <div class="body-content clearfix" >

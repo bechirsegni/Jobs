@@ -143,6 +143,19 @@
     </div><!-- end form search area-->
 
   </header><!-- end main-header -->
+  <%= form_tag jobs_path, class: "form-inline", method: :get do %>
+      <div class="input-group input-group-lg" >
+        <%if params[:query].present? %>
+            <div class="input-group-btn">
+        <%end%>
+        <%= link_to "clear", jobs_path, class: "btn btn-default" %>
+        </div>
+        <%= text_field_tag :query, params[:query], id:'typeahead' %>
+        <div class=input-group-btn">
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        </div>
+      </div>
+  <%end%>
 
 
   <!-- body-content -->

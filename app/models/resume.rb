@@ -1,4 +1,5 @@
 class Resume < ActiveRecord::Base
-  belongs_to :user
+  searchkick autocomplete: ['title']
 
+  belongs_to :user
 end

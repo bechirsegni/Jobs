@@ -4,7 +4,15 @@ class BlogsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1)
+    if params[:query].present?
+      @blogs = Blog.search(params[:query], page: params[:page])
+    else
+    @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page params[:page]
+    end
+  end
+
+  def autocomplete
+    render json: Blog.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def show
