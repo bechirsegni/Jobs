@@ -17,6 +17,7 @@ class ResumesController < ApplicationController
   end
 
   def show
+  @resume.user
   end
 
   def new
@@ -60,7 +61,7 @@ class ResumesController < ApplicationController
   end
 
   def resume_params
-    params.require(:resume).permit(:title, :description, :location, :role,:date,:edu_title,:edu_location,:edu_date,:edu_description,:additional )
+    params.require(:resume).permit(:title,:location, :experience,:education,:information,:user_id )
   end
 
   def correct_user

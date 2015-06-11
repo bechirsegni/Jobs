@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611004458) do
+ActiveRecord::Schema.define(version: 20150611020001) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -48,19 +48,14 @@ ActiveRecord::Schema.define(version: 20150611004458) do
   end
 
   create_table "resumes", force: :cascade do |t|
-    t.string   "title",           limit: 255
-    t.string   "role",            limit: 255
-    t.string   "location",        limit: 255
-    t.string   "date",            limit: 255
-    t.text     "description",     limit: 65535
-    t.string   "edu_title",       limit: 255
-    t.string   "edu_location",    limit: 255
-    t.string   "edu_date",        limit: 255
-    t.text     "edu_description", limit: 65535
-    t.text     "additional",      limit: 65535
-    t.integer  "user_id",         limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.string   "title",       limit: 255
+    t.string   "location",    limit: 255
+    t.text     "experience",  limit: 65535
+    t.text     "education",   limit: 65535
+    t.text     "information", limit: 65535
+    t.integer  "user_id",     limit: 4
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "users", force: :cascade do |t|

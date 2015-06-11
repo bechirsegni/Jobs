@@ -166,13 +166,13 @@
                     <div class="col-md-1 hidden-sm hidden-xs"><div class="img-item">
                       <%= image_tag '1.jpg'%></div></div>
                     <div class="col-md-11">
-                      <h3 class="no-margin-top"><a href="resume_details.html" class="">Bryon Czoch  <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
-                      <h5><span class="color-black">Chicago, IL</span></h5>
-                      <p><%=r.role%> - <span class="color-white-mute">Barcode Giant </span> <br/>
-                        <%=r.edu_location%>-  <span class="color-white-mute"><%=r.edu_description%></span><br/>
+                      <h3 class="no-margin-top"><a href="resume_details.html" class=""><%= r.user.email%> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+                      <h5><span class="color-black"><%=r.location%></span></h5>
+                      <p><%=r.title%> - <span class="color-white-mute"><%= r.user.email%> </span> <br/>
+                        <%=r.information%>
                         </p>
                       <div>
-                        <span class="color-white-mute"><%= localize(r.created_at) %></span> -
+                        <span class="color-white-mute"><%="#{time_ago_in_words(r.created_at)} ago"%></span> -
                         <a href="#" class="btn btn-xs btn-theme btn-default">save resume</a>
                       </div>
                     </div>
