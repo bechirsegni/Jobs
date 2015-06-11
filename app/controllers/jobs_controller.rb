@@ -21,6 +21,7 @@ class JobsController < ApplicationController
 
   def new
     @job = current_user.jobs.build
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def create
@@ -33,11 +34,12 @@ class JobsController < ApplicationController
   end
 
   def edit
-
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def update
     if @job.update(job_params)
+      @job.category_id = params[:category_id]
       redirect_to job_path
     else
       render :edit
@@ -59,7 +61,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :company,:location,:salary,:experience)
+    params.require(:job).permit(:title, :description, :company,:location,:salary,:experience,:category_id)
   end
 
   def correct_user
