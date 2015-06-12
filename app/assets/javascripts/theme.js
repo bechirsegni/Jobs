@@ -112,7 +112,28 @@
   }
 
 
+
+    setTimeout(function () {
+        $('#notice_wrapper').fadeOut("fast", function () {
+            $(this).remove();
+        })
+    }, 3000);
+
+
+
+    setTimeout(function(){
+        $('#alert_wrapper').fadeOut("fast", function(){
+            $(this).remove();
+        })
+    },3000);
+
+
 })(jQuery);
+
+
+
+
+
 
 
 

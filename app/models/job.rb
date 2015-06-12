@@ -4,11 +4,6 @@ class Job < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-  def as_indexed_json
-    self.as_json({
-                     only: [:title, :description, :company_name,:location,:name],
-                 })
-  end
 
   belongs_to :user , dependent: :destroy
   belongs_to :company
