@@ -89,6 +89,8 @@ GEM
     i18n (0.7.0)
     ie_conditional_tag (0.6.0)
       rails (>= 3.0)
+    intercom-rails (0.2.28)
+      activesupport (> 3.0)
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -226,6 +228,7 @@ DEPENDENCIES
   elasticsearch-rails
   font-awesome-rails (~> 4.3.0.0)
   ie_conditional_tag
+  intercom-rails
   jbuilder (~> 2.0)
   jquery-rails
   magnific-popup-rails (~> 0.9.9.1)

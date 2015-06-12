@@ -9,7 +9,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-
 gem 'devise', '~> 3.4.1'
 
 gem 'font-awesome-rails', '~> 4.3.0.0'
@@ -20,20 +19,16 @@ gem 'ie_conditional_tag'
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'omniauth-linkedin', '~> 0.2.0'
-
 gem 'mail_form'
-
-
 
 gem 'searchkick', '~> 0.9.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
-
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
-
 gem 'newrelic_rpm', '~> 3.12.0.288'
+gem 'intercom-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,6 +1,14 @@
 require 'elasticsearch/model'
 class Job < ActiveRecord::Base
   searchkick
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  def as_indexed_json
+    self.as_json({
+                     only: [:title, :description, :company_name,:location,:name],
+                 })
+  end
 
   belongs_to :user , dependent: :destroy
   belongs_to :company
@@ -27,7 +35,6 @@ class Job < ActiveRecord::Base
       Tag.where(name: n.strip).first_or_create!
     end
   end
-
 
 
   end

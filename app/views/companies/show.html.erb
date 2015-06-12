@@ -35,22 +35,12 @@
 
             <!-- Bout Company-->
             <h3 class="title" id="cp-about">About</h3>
-
+            <%= @company.address%>
             <p><%= @company.about%></p>
 
             <!-- Reviews list-->
-            <h3 class="title" id="cp-review">Review &nbsp;
-                    <span class="rate">
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star"></i>
-                      <i class="fa fa-star-half-o"></i>
-                    </span>
-              <small>(1390)</small>
-            </h3>
             <h4>Company Attributes</h4>
-            <p><%= @company.address%></p>
+            <p></p>
             <div class="row">
               <div class="col-sm-6">
                 <p><span class="rate">
@@ -93,43 +83,6 @@
 
               </div>
             </div>
-
-
-            <h4>List Reviews</h4>
-            <div class="mt-20">
-              <h5><span class="rate">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star-o"></i>
-                      </span> Productive and fun workplace.</h5>
-              <p>Customer Service Specialist (Current Employee), Nashville, TN – February 21, 2015</p>
-              <div class="row">
-                <div class="col-sm-6">
-                  <p><strong>Pros</strong>: free lunches, overtime, benefits, and good work hours</p>
-                </div>
-                <div class="col-sm-6">
-                  <p> <strong>Cons</strong>:  sit down at desk for long periods of time, job security</p>
-                </div>
-              </div>
-              <p>A typical day at work is to come in and log on to the computer and log in to the phone system. Open all necessary applications to service the incoming calls. I learned a lot about fixed annuities, it is still a daily learning process. The management has genuine care for the employees.My co-workers are all friendly and easy to work with. The hardest part of the job is finding the correct information to provide to the customers, I want to be as informative and accurate as possible. The most enjoyable part of the job is interacting with the customers and making them feel comfortable with speaking to me about their questions and concerns.</p>
-
-            </div>
-            <div class="mt-20">
-              <h5><span class="rate">
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                        <i class="fa fa-star"></i>
-                      </span> Getting paid to have fun.</h5>
-              <p>Unarmed Security Guard (Former Employee), Nashville, TN – February 22, 2015</p>
-              <p>This was my favorite job so far. I got to watch some of my favorite bands while getting paid for it! Also, I was taught to handle some difficult situations with intoxicated and unruly people. This is has given me more experience with customer service!</p>
-
-            </div>
-            <p><a href="#" class="btn btn-theme btn-line dark btn-sm btn-pill">Load More</a></p>
-
 
             <!-- galery photos-->
             <h3 class="title" id="cp-photos">Photos <small>(8)</small></h3>
