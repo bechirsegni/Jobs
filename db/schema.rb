@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611020001) do
+ActiveRecord::Schema.define(version: 20150612005932) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",       limit: 255
@@ -28,17 +28,26 @@ ActiveRecord::Schema.define(version: 20150611020001) do
     t.datetime "updated_at",             null: false
   end
 
+  create_table "companies", force: :cascade do |t|
+    t.text     "about",      limit: 65535
+    t.text     "address",    limit: 65535
+    t.string   "user_id",    limit: 255
+    t.string   "job_id",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
   create_table "jobs", force: :cascade do |t|
-    t.string   "title",       limit: 255
-    t.string   "company",     limit: 255
-    t.text     "description", limit: 65535
-    t.string   "location",    limit: 255
-    t.string   "salary",      limit: 255
-    t.string   "experience",  limit: 255
-    t.integer  "user_id",     limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "category_id", limit: 4
+    t.string   "title",        limit: 255
+    t.string   "company_name", limit: 255
+    t.text     "description",  limit: 65535
+    t.string   "location",     limit: 255
+    t.string   "salary",       limit: 255
+    t.string   "experience",   limit: 255
+    t.integer  "user_id",      limit: 4
+    t.integer  "category_id",  limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "newsletters", force: :cascade do |t|
@@ -56,6 +65,38 @@ ActiveRecord::Schema.define(version: 20150611020001) do
     t.integer  "user_id",     limit: 4
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+  end
+
+  create_table "skillings", force: :cascade do |t|
+    t.integer  "skill_id",   limit: 4
+    t.integer  "resume_id",  limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "skillings", ["resume_id"], name: "index_skillings_on_resume_id", using: :btree
+  add_index "skillings", ["skill_id"], name: "index_skillings_on_skill_id", using: :btree
+
+  create_table "skills", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",     limit: 4
+    t.integer  "job_id",     limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "taggings", ["job_id"], name: "index_taggings_on_job_id", using: :btree
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,4 +120,8 @@ ActiveRecord::Schema.define(version: 20150611020001) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "skillings", "resumes"
+  add_foreign_key "skillings", "skills"
+  add_foreign_key "taggings", "jobs"
+  add_foreign_key "taggings", "tags"
 end

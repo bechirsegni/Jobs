@@ -1,4 +1,4 @@
 class Blog < ActiveRecord::Base
-  searchkick autocomplete: ['title']
-  belongs_to :user
+  searchkick
+  belongs_to :user , dependent: :destroy
 end

@@ -22,7 +22,7 @@
             <%= form_for @job, :multipart => true do |f| %>
               <div class="form-group">
                 <label>Company Name</label>
-                <%= f.text_field :company, :class => 'form-control' ,placeholder:'Enter Company Name'%>
+                <%= f.text_field :company_name, :class => 'form-control' ,placeholder:'Enter Company Name'%>
               </div>
               <div class="form-group">
                 <label>Job title</label>
@@ -43,6 +43,11 @@
                   <label>Job Category</label>
                   <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'}, {class: "form-control"})%>
                   </div>
+
+                <div class="form-group">
+                  <label>Require Skills :</label>
+                  <%= f.text_field :tag_list, :class => 'form-control' ,placeholder:'EX: PHP,JAVA,RUBY'%>
+                </div>
 
               <div class="form-group">
                 <label>Salary (optional)</label>

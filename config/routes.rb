@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
 
+  get 'tags/:tag', to: 'jobs#index', as: :tag
+  get 'skills/:skill', to: 'resumes#index', as: :skill
+
+
+  resources :companies
+
   resources :blogs
   resources :jobs
   resources :resumes

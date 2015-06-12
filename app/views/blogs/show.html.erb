@@ -26,6 +26,8 @@
                 <div class="blog-img">
                   <img src="./assets/theme/images/home-bg.jpg" alt="" class="img-full ">
                 </div>
+                <p>Skills: <%= raw @blog.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+
                 <p><%= @blog.description%></p>
 
                 <div class="blog-desc-bottom">

@@ -36,6 +36,8 @@
                   <img src="./assets/theme/images/home-bg.jpg" alt="" class="img-full ">
                 </div>
                 <p><%= blog.description %></p>
+                <p>Tags: <%= raw blog.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+
                 <p class="blog-links"><a href="blog_single_post.html" class="btn btn-theme btn-line soft ">Continue Reading &nbsp; &rarr;</a></p>
               </div><!-- end blog item -->
                   <% end %>

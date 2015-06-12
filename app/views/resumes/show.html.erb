@@ -159,6 +159,7 @@
                   <h2><%= @resume.user.email%></h2>
                   <h4><%= @resume.title%></h4>
                   <p><%=@resume.location%></p>
+                  <p>Skills: <%= raw @resume.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
                   <h3 class="resume-sub-title"><span>Work Experience</span></h3>
                   <h5><%= @resume.experience%></h5>
                   <h3 class="resume-sub-title"><span>Education</span></h3>

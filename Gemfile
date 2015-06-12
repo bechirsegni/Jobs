@@ -26,10 +26,9 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 
 gem 'searchkick', '~> 0.9.0'
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
 
 gem 'newrelic_rpm', '~> 3.12.0.288'
+
 
 group :development, :test do
   gem 'byebug'

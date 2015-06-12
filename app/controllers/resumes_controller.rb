@@ -4,7 +4,9 @@ class ResumesController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:query].present?
+    if params[:skill]
+      @resumes = Resume.skilled_with(params[:skill]).paginate(:page => params[:page], :per_page => 8).page params[:page]
+    elsif params[:query].present?
       @resumes = Resume.search(params[:query], page: params[:page])
     else
       @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10).page params[:page]
@@ -61,7 +63,7 @@ class ResumesController < ApplicationController
   end
 
   def resume_params
-    params.require(:resume).permit(:title,:location, :experience,:education,:information,:user_id )
+    params.require(:resume).permit(:title,:location, :experience,:education,:information,:user_id,:skill_list )
   end
 
   def correct_user

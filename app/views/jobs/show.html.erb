@@ -187,6 +187,9 @@
                 </ul>
               </div>
               <p><%=@job.description.html_safe%></p>
+              <p>Skills: <%= raw @job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+
+
             </div><!-- end box item details -->
 
           </div>

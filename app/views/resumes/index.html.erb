@@ -172,6 +172,8 @@
                       <p><%=r.title%> - <span class="color-white-mute"><%= r.user.email%> </span> <br/>
                         <%=r.information%>
                         </p>
+                      <p>Skills: <%= raw r.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
+
                       <div>
                         <span class="color-white-mute"><%="#{time_ago_in_words(r.created_at)} ago"%></span> -
                         <a href="#" class="btn btn-xs btn-theme btn-default">save resume</a>

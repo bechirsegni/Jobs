@@ -4,7 +4,9 @@ class JobsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:query].present?
+    if params[:tag]
+      @jobs = Job.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 8).page params[:page]
+    elsif params[:query].present?
       @jobs = Job.search(params[:query], page: params[:page])
     else
       @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 8).page params[:page]
@@ -12,9 +14,7 @@ class JobsController < ApplicationController
     @newsletter = Newsletter.new
   end
 
-  def autocomplete
-    render json: Job.search(params[:query], autocomplete: true, limit: 10).map(&:title)
-  end
+
 
   def show
   end
@@ -61,7 +61,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :company,:location,:salary,:experience,:category_id)
+    params.require(:job).permit(:title, :description, :company_name,:location,:salary,:experience,:category_id,:tag_list)
   end
 
   def correct_user

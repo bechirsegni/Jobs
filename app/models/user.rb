@@ -16,5 +16,6 @@ class User < ActiveRecord::Base
   has_many :jobs , dependent: :destroy
   has_many :resumes , dependent: :destroy
   has_many :blogs , dependent: :destroy
+  has_many :companies , dependent: :destroy
 
 end
