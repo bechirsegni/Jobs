@@ -4,18 +4,14 @@ class ResumesController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:skill]
-      @resumes = Resume.skilled_with(params[:skill]).paginate(:page => params[:page], :per_page => 8).page params[:page]
+    if params[:skill].present?
+      @resumes = Resume.skilled_with(params[:skill]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
     elsif params[:query].present?
-      @resumes = Resume.search(params[:query], page: params[:page])
+      @resumes = Resume.search(params[:query])
     else
-      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 10).page params[:page]
+      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page(params[:page])
     end
     @newsletter = Newsletter.new
-  end
-
-  def autocomplete
-    render json: Resume.search(params[:query], autocomplete: true, limit: 10).map(&:title)
   end
 
   def show

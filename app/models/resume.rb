@@ -1,7 +1,25 @@
+require 'elasticsearch/model'
 class Resume < ActiveRecord::Base
   searchkick
-  belongs_to :user, dependent: :destroy
 
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+  Resume.import
+
+  def self.search(query)
+    __elasticsearch__.search(
+        {
+            query: {
+                multi_match: {
+                    query: query,
+                    fields: ['title^10']
+                }
+            }
+        }
+    )
+  end
+
+  belongs_to :user, dependent: :destroy
   has_many :skillings , dependent: :destroy
   has_many :skills, through: :skillings , dependent: :destroy
 

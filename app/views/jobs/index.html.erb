@@ -180,7 +180,6 @@
                   </p>
                 </div>
               </div><!-- end desc top -->
-
               <!-- item list -->
               <div class="box-list">
                 <% @jobs.each do |job|%>
@@ -231,7 +230,7 @@
               <nav >
                 <ul class="pagination pagination-theme  no-margin">
                   <li>
-                   <!-- <%= will_paginate @jobs, renderer: BootstrapPagination::Rails ,class:'pagination-theme' %> -->
+                    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class:'pagination pagination-theme pagination-lg' %>
                   </li>
                 </ul>
               </nav><!-- pagination -->
@@ -258,7 +257,7 @@
                   <div class="list-area">
                     <ul class="list-unstyled">
                       <% tag_cloud Job.tag_counts, %w{s m l} do |tag, css_class| %>
-                          <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+                          <%= link_to tag.name.slice(0,1).capitalize + tag.name.slice(1..-1), tag_path(tag.name), class: css_class %>
                       <% end %>
                     </ul>
                   </div>

@@ -208,7 +208,7 @@
               <nav >
                 <ul class="pagination pagination-theme  no-margin">
                   <li>
-                    <%= will_paginate @resumes, renderer: BootstrapPagination::Rails ,class:'pagination-theme' %>
+                    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class:'pagination pagination-theme pagination-lg' %>
                   </li>
                 </ul>
               </nav><!-- pagination -->
@@ -238,7 +238,7 @@
                   <div class="list-area">
                     <ul class="list-unstyled">
                       <% tag_cloud Resume.skill_counts, %w{s m l} do |tag, css_class| %>
-                          <%= link_to tag.name, skill_path(tag.name), class: css_class %>
+                          <%= link_to tag.name.slice(0,1).capitalize + tag.name.slice(1..-1), skill_path(tag.name), class: css_class %>
                       <% end %>
                     </ul>
                   </div>

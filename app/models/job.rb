@@ -1,11 +1,13 @@
+require 'elasticsearch/model'
 class Job < ActiveRecord::Base
   searchkick
+
   belongs_to :user , dependent: :destroy
   belongs_to :company
   belongs_to :category , dependent: :destroy
-
   has_many :taggings
   has_many :tags, through: :taggings
+
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).jobs
@@ -25,4 +27,7 @@ class Job < ActiveRecord::Base
       Tag.where(name: n.strip).first_or_create!
     end
   end
+
+
+
   end

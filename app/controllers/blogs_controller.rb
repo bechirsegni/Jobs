@@ -5,17 +5,14 @@ class BlogsController < ApplicationController
 
   def index
     if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 8).page params[:page]
+      @blogs = Blog.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
     elsif params[:query].present?
-      @blogs = Blog.search(params[:query], page: params[:page])
+      @blogs = Blog.search(params[:query])
     else
-      @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page params[:page]
+      @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page(params[:page])
     end
   end
 
-  def autocomplete
-    render json: Blog.search(params[:query], autocomplete: true, limit: 10).map(&:title)
-  end
 
   def show
   end
