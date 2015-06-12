@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
       user.password = Devise.friendly_token[0,20]
     end
   end
+  validates :email, :uniqueness => :true
 
   has_many :jobs , dependent: :destroy
   has_many :resumes , dependent: :destroy

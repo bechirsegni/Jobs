@@ -11,8 +11,6 @@
           </div>
         </div>
         <div class="col-md-8">
-
-
           <!-- form search  -->
           <form class="form-search-list">
             <div class="row">
@@ -233,29 +231,15 @@
                   </p>
                 </div>
               </div>
-
-
               <!-- filter   -->
               <div class="result-filter">
-                <h5 class="no-margin-top font-bold margin-b-20 " ><a href="#s_collapse_1" data-toggle="collapse" >Education <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
+                <h5 class="no-margin-top font-bold margin-b-20 " ><a href="#s_collapse_1" data-toggle="collapse" >Skills <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
                 <div class="collapse in" id="s_collapse_1">
                   <div class="list-area">
                     <ul class="list-unstyled">
-                      <li>
-                        <a  href="#" >Doctorate</a> (16947)
-                      </li>
-                      <li>
-                        <a  href="#" >Masters</a> (13915)
-                      </li>
-                      <li>
-                        <a  href="#" >Bachelors</a> (9398)
-                      </li>
-                      <li>
-                        <a  href="#" >Associates</a> (4112)
-                      </li>
-                      <li>
-                        <a  href="#" >Diploma</a> (1864)
-                      </li>
+                      <% tag_cloud Resume.skill_counts, %w{s m l} do |tag, css_class| %>
+                          <%= link_to tag.name, skill_path(tag.name), class: css_class %>
+                      <% end %>
                     </ul>
                   </div>
                 </div>

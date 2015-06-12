@@ -19,6 +19,7 @@ gem 'ie_conditional_tag'
 
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
+gem 'omniauth-linkedin', '~> 0.2.0'
 
 gem 'mail_form'
 
