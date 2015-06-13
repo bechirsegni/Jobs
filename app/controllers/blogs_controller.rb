@@ -4,15 +4,8 @@ class BlogsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:tag]
-      @blogs = Blog.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
-    elsif params[:query].present?
-      @blogs = Blog.search(params[:query])
-    else
-      @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page(params[:page])
-    end
+      @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4).page(params[:page])
   end
-
 
   def show
   end
@@ -52,7 +45,7 @@ class BlogsController < ApplicationController
     end
 
     def blog_params
-      params.require(:blog).permit(:title, :description, :tags,:tag_list)
+      params.require(:blog).permit(:title, :description, :tags,:photo)
     end
 
     def correct_user

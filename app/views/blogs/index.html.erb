@@ -1,45 +1,33 @@
 <% content_for(:title, 'Blog')%>
-
 <header class="main-header">
     <div class="container">
-      <div class="text-center logo no-margin-bottom"> <a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a></div>
+      <div class="text-center logo no-margin-bottom"> <a href="index.html">
+      <%=image_tag 'logo.png'%></a></div>
       <h3 class="color-white text-center ">Articles &amp; Blog</h3>
       <div class="white-space-50"></div>
     </div>
   </header><!-- end main-header -->
-  <%= form_for jobs_path, method: :get do |f| %>
-      <p>
-        <%= f.label "Search for" %>
-        <%= text_field_tag :query, params[:query] %>
-        <%= submit_tag "Go", name: nil %>
-      </p>
-  <% end %>
-
   <!-- body-content -->
   <div class="body-content clearfix" >
-
     <!-- blog block -->
     <div class="bg-color1 block-section">
       <div class="container">
         <div class="row">
           <div class="col-md-10 col-md-offset-1">
-
             <!-- blog list -->
             <div class="blog-list">
-
               <!-- blog item -->
               <% @blogs.each do |blog| %>
               <div class="blog-item">
                 <h2 class="blog-title"><a href="blog_single_post.html" ><%= blog.title %></a></h2>
-                <div class="blog-meta">February 27, 2015 by <a href="#">William Frierson</a></div>
+                <div class="blog-meta"><%="#{time_ago_in_words(blog.created_at)} ago"%> by <a href="#"><%= blog.user.email%></a></div>
                 <div class="blog-img">
-                  <img src="./assets/theme/images/home-bg.jpg" alt="" class="img-full ">
+                  <%=image_tag blog.photo.url(:medium), class:'img-full'%>
                 </div>
                 <p><%= blog.description %></p>
                 <p class="blog-links"><a href="blog_single_post.html" class="btn btn-theme btn-line soft ">Continue Reading &nbsp; &rarr;</a></p>
               </div><!-- end blog item -->
-                  <% end %>
-
+              <% end %>
             </div><!-- end blog list -->
             <!-- pager -->
             <div class="text-center">

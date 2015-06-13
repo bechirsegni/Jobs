@@ -15,7 +15,8 @@ gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
 gem 'modernizr-rails', '~> 2.7.1'
 gem 'ie_conditional_tag'
-gem 'wmd-rails'
+gem 'paperclip', '~> 4.2.2'
+
 
 gem 'omniauth-facebook', '~> 2.0.1'
 gem 'omniauth-google-oauth2', '~> 0.2.6'

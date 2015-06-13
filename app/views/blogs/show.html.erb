@@ -21,12 +21,12 @@
               <!-- blog details -->
               <div class="blog-item">
 
-                <h2 class="blog-title"><a href="blog_single_post.html" ><%@blog.title%></a></h2>
-                <div class="blog-meta">February 27, 2015 by <a href="#">William Frierson</a></div>
+                <h2 class="blog-title"><a href="blog_single_post.html" ><%=@blog.title%></a></h2>
+                <div class="blog-meta"><%="#{time_ago_in_words(@blog.created_at)} ago"%> by <a href="#"><%= @blog.user.email%></a></div>
                 <div class="blog-img">
-                  <img src="./assets/theme/images/home-bg.jpg" alt="" class="img-full ">
+                  <%=image_tag @blog.photo.url(:medium), class:'img-full'%>
                 </div>
-                <p>Skills: <%= raw @blog.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+                <p>Tags: <%=@blog.tags %></p>
 
                 <p><%= @blog.description%></p>
 
