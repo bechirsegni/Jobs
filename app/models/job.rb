@@ -4,13 +4,11 @@ class Job < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
-
-  belongs_to :user , dependent: :destroy
+  belongs_to :user
   belongs_to :company
   belongs_to :category , dependent: :destroy
-  has_many :taggings
+  has_many :taggings, :dependent => :destroy
   has_many :tags, through: :taggings
-
 
   def self.tagged_with(name)
     Tag.find_by_name!(name).jobs
@@ -30,6 +28,4 @@ class Job < ActiveRecord::Base
       Tag.where(name: n.strip).first_or_create!
     end
   end
-
-
-  end
+end

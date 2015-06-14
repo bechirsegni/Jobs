@@ -130,6 +130,8 @@
 
 })(jQuery);
 
+$('.chosen-it').chosen()
+
 
 
 

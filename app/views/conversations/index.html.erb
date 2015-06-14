@@ -1,7 +1,23 @@
 <% content_for(:title, 'Inbox')%>
 
+<header class="main-header" xmlns="http://www.w3.org/1999/html">
+  <div class="container">
+    <div class="text-center logo no-margin-bottom">
+      <%= link_to image_tag('logo.png'),root_path%>
+    </div>
+    <h3 class="color-white text-center ">Articles &amp; Blog</h3>
+    <div class="white-space-50"></div>
+  </div>
+</header><!-- end main-header -->
 
+<div class="inbox">
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Mailbox</h3>
+  </div>
+  <div class="panel-body">
 <div class="row">
+
   <div class="col-sm-3">
     <ul class="nav nav-pills nav-stacked">
       <%= mailbox_section 'inbox', @box %>
@@ -9,8 +25,6 @@
       <%= mailbox_section 'trash', @box %>
     </ul>
   </div>
-
-
   <div class="col-sm-9">
     <ul class="list-group">
       <%= render partial: 'conversations/conversation', collection: @conversations %>
@@ -18,4 +32,48 @@
     <%= will_paginate %>
   </div>
 </div>
+    </div>
+    <div class="panel-footer"><%= current_user.email%></div>
+  </div>
+</div>
 
+
+
+
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag messages_path, method: :post do %>
+            <div class="form-group">
+              <%= label_tag 'message[subject]', 'Subject' %>
+              <%= text_field_tag 'message[subject]', nil, class: 'form-control', required: true %>
+            </div>
+
+            <div class="form-group">
+              <%= label_tag 'message[body]', 'Message' %>
+              <%= text_area_tag 'message[body]', nil, cols: 3, class: 'form-control', required: true %>
+            </div>
+            <div class="form-group">
+            <%= select_tag 'recipients', recipients_options(@chosen_recipient), multiple: false, html_safe:{class: 'chosen-it' }   %>
+            </div >
+            <%= submit_tag 'Send', class: 'btn btn-primary' %>
+
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

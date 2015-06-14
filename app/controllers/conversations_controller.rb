@@ -12,13 +12,13 @@ class ConversationsController < ApplicationController
     else
       @conversations = @mailbox.trash
     end
-
     @conversations = @conversations.paginate(page: params[:page], per_page: 10)
   end
 
   def show
 
   end
+
 
   def destroy
     @conversation.move_to_trash(current_user)

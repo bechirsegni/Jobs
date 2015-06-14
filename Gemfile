@@ -33,7 +33,6 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
 gem 'jquery-turbolinks'
 gem 'newrelic_rpm', '~> 3.12.0.288'
-gem 'intercom-rails'
 
 group :development, :test do
   gem 'byebug'

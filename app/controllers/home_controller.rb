@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
 
+
   def index
     @jobs = Job.all
     @resumes = Resume.all
@@ -16,4 +17,5 @@ class HomeController < ApplicationController
 
   def employers
   end
+
 end

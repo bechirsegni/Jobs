@@ -25,7 +25,7 @@ class ResumesController < ApplicationController
   def create
     @resume = current_user.resumes.build(resume_params)
     if @resume.save!
-      redirect_to resumes_path
+      redirect_to resumes_path, notice:'Resume was successfully Created'
     else
       render :new
     end
@@ -37,18 +37,15 @@ class ResumesController < ApplicationController
 
   def update
     if @resume.update(resume_params)
-      redirect_to resume_path
+      redirect_to resume_path ,notice:'Resume was successfully Updated'
     else
       render :edit
     end
   end
 
   def destroy
-    if @resume.destroy
-      redirect_to root_path
-    else
-      redirect_to resume_path
-    end
+      @resume.destroy
+      redirect_to root_path, notice:'Resume was successfully Destroyed'
   end
 
 

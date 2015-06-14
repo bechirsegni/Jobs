@@ -17,4 +17,8 @@ module ApplicationHelper
     image_tag gravatar_image_url(user.email, size: size), title: title, class: 'img-rounded'
   end
 
+  def mailbox
+    @mailbox ||= current_user.mailbox
+  end
+
 end

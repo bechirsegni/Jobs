@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150613224954) do
+ActiveRecord::Schema.define(version: 20150614062005) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255

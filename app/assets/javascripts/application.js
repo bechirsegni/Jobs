@@ -16,5 +16,4 @@
 //= require bootstrap
 //= require magnific-popup
 //= require theme
-//= require messages
 //= require turbolinks

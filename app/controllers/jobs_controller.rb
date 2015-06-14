@@ -4,8 +4,8 @@ class JobsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:tag].present?
-      @jobs = Job.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 2).page(params[:page])
+    if params[:skill].present?
+      @resumes = Resume.tagged_with(params[:skill]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
     elsif params[:query].present?
       @jobs = Job.search(params[:query])
     else
@@ -46,8 +46,9 @@ class JobsController < ApplicationController
   end
 
   def destroy
-    if @job.destroy
-      redirect_to root_path
+   if  @job.destroy
+      redirect_to jobs_path, notice: 'Job Successfully Destroyed'
+
     else
       redirect_to job_path
     end

@@ -8,20 +8,24 @@
         <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
         <li><%= link_to ("<strong>Employers</strong>").html_safe, employers_url%> </li>
         <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url%> </li>
-        <li><%= link_to ("<strong>Contact us</strong>").html_safe, contacts_url%> </li>
-       <li> <%= link_to 'Your Conversations', conversations_path %></li>
       </ul>
       <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
             <li class="dropdown">
               <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
-                <%=image_tag '4.jpg', class: 'img-profile'%> &nbsp; <%= current_user.email%> <b class="caret"></b>
+                <%= image_tag current_user.photo.url,class:'img-profile'%> &nbsp; <%= current_user.name%> <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="my_alerts.html"> My Alerts </a></li>
                 <li><a href="my_notifications.html"> Notifications <span class="badge ">5</span></a></li>
                 <li><%=link_to 'Account Settings', account_path %></li>
               </ul>
+            </li>
+
+            <li class="link-btn">
+              <%= link_to  conversations_path   do%>
+                  <span class="btn btn-theme  btn-pill btn-xs btn-line">Inbox <span class="badge"><%= mailbox.inbox.count%></span></span>
+              <%end%>
             </li>
             <li class="link-btn">
               <%= link_to logout_path  do%>
@@ -45,7 +49,8 @@
         <ul class="nav navbar-nav nav-block-left">
           <li class="dropdown">
             <a href="#" class="link-profile dropdown-toggle"  data-toggle="dropdown" >
-              <%=image_tag '4.jpg', class: 'img-profile'%> &nbsp; <%= current_user.email%> <b class="caret"></b>
+              <%= image_tag current_user.photo.url,class:'img-profile'%>
+              &nbsp; <%= current_user.name%> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu" role="menu">
               <li><a href="my_alerts.html"> My Alerts </a></li>

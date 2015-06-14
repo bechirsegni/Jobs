@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :messages, only: [:new, :create]
 
+
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'
   get 'employers', to: 'home#employers'

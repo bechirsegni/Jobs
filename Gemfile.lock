@@ -137,8 +137,6 @@ GEM
     i18n (0.7.0)
     ie_conditional_tag (0.6.0)
       rails (>= 3.0)
-    intercom-rails (0.2.28)
-      activesupport (> 3.0)
     jbuilder (2.2.16)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -292,7 +290,6 @@ DEPENDENCIES
   font-awesome-rails (~> 4.3.0.0)
   gravatar_image_tag
   ie_conditional_tag
-  intercom-rails
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
@@ -317,3 +314,6 @@ DEPENDENCIES
   web-console (~> 2.0)
   will_paginate (~> 3.0.7)
   will_paginate-bootstrap (~> 1.0.1)
+
+BUNDLED WITH
+   1.10.3

@@ -19,7 +19,7 @@ class Resume < ActiveRecord::Base
     )
   end
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   has_many :skillings , dependent: :destroy
   has_many :skills, through: :skillings , dependent: :destroy
 
