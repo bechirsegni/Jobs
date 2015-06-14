@@ -4,10 +4,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <div class="logo text-center-sm inline"> <a href="index.html">
-            <%= image_tag 'logo.png'%>
+          <div class="logo text-center-sm inline">
+            <%= link_to image_tag('logo.png'),root_path%>
             <div class="label-add">Resume</div>
-          </a>
           </div>
         </div>
         <div class="col-md-8">
@@ -150,7 +149,7 @@
                 </div>
                 <div class="col-sm-6">
                   <p class="text-right">
-                    Jobs 1 to 10 of 578
+                    5 Jobs of <%= @resumes.count%>
                   </p>
                 </div>
               </div><!-- end top desc -->
@@ -163,15 +162,15 @@
                 <div class="item">
                   <div class="row">
                     <div class="col-md-1 hidden-sm hidden-xs"><div class="img-item">
-                      <%= image_tag '1.jpg'%></div></div>
+                      <%= image_tag r.user.photo.url%>
+                    </div></div>
                     <div class="col-md-11">
-                      <h3 class="no-margin-top"><a href="resume_details.html" class=""><%= r.user.email%> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+                      <h3 class="no-margin-top"><%=link_to r.user.email, r%> <i class="fa fa-link color-white-mute font-1x"></i></h3>
                       <h5><span class="color-black"><%=r.location%></span></h5>
                       <p><%=r.title%> - <span class="color-white-mute"><%= r.user.email%> </span> <br/>
                         <%=r.information%>
                         </p>
                       <p>Skills: <%= raw r.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
-
                       <div>
                         <span class="color-white-mute"><%="#{time_ago_in_words(r.created_at)} ago"%></span> -
                         <a href="#" class="btn btn-xs btn-theme btn-default">save resume</a>

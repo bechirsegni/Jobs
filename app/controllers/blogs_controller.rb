@@ -19,7 +19,7 @@ class BlogsController < ApplicationController
 
   def create
     @blog = current_user.blogs.build(blog_params)
-      if @blog.save
+      if @blog.save!
       redirect_to @blog, notice: 'Post was successfully created.'
       else
         render :new

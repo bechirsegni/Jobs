@@ -3,9 +3,9 @@
     <div class="hero-header">
       <div class="inner-hero-header">
         <div class="container">
-          <div class="text-center logo"> <a href="index.html">
-            <%= image_tag 'logo.png'%>
-          </a></div>
+          <div class="text-center logo">
+            <%= link_to image_tag('logo.png'),root_path%>
+          </div>
           <div class="relative">
             <i class="fa fa-globe ic-fade-globe"></i>
             <!-- form search -->
@@ -34,8 +34,6 @@
           </div>
         </div>
       </div>
-
-
       <!-- modal Advanced search -->
       <div class="modal fade" id="modal-advanced" >
         <div class="modal-dialog ">
@@ -131,17 +129,10 @@
           </div>
         </div>
       </div><!-- end modal forgot password -->
-
-
-
-
     </div>
   </header><!-- end main-header -->
-
-
   <!-- body-content -->
   <div class="body-content clearfix" >
-
     <!-- box simple static -->
     <div class="block-section bg-color1">
       <div class="container">

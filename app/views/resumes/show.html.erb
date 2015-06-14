@@ -140,7 +140,9 @@
             <div>Resume details :</div>
           </div>
           <div class="col-sm-6">
-            <div class="text-right"><a href="#">&laquo; Go back to resume listings</a></div>
+            <div class="text-right">
+              <%= link_to 'Go back to resume listings', resumes_path %>
+            </div>
           </div>
         </div>
       </div>
@@ -154,7 +156,9 @@
             <!-- box item details -->
             <div class="block-section box-item-details">
               <div class="resume-block">
-                <div class="img-profile"><img src="./assets/theme/images/people/7.jpg" alt=""></div>
+                <div class="img-profile">
+                  <%= image_tag @resume.user.photo.url%>
+                 </div>
                 <div class="desc">
                   <h2><%= @resume.user.email%></h2>
                   <h4><%= @resume.title%></h4>

@@ -11,7 +11,14 @@ Rails.application.routes.draw do
   resources :jobs
   resources :resumes
   resources :newsletters
-
+  resources :conversations, only: [:index, :show, :destroy] do
+    member do
+      post :reply
+      post :restore
+      post :mark_as_read
+    end
+  end
+  resources :messages, only: [:new, :create]
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'
@@ -28,6 +35,7 @@ Rails.application.routes.draw do
     post 'register', :to => 'devise/registrations#new'
     get 'logout', to: 'devise/sessions#destroy'
     get 'password', to: 'devise/passwords#new'
+    get 'account', to: 'devise/registrations#edit'
   end
 
 

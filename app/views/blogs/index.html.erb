@@ -1,8 +1,9 @@
 <% content_for(:title, 'Blog')%>
 <header class="main-header">
     <div class="container">
-      <div class="text-center logo no-margin-bottom"> <a href="index.html">
-      <%=image_tag 'logo.png'%></a></div>
+      <div class="text-center logo no-margin-bottom">
+        <%= link_to image_tag('logo.png'),root_path%>
+      </div>
       <h3 class="color-white text-center ">Articles &amp; Blog</h3>
       <div class="white-space-50"></div>
     </div>
@@ -19,13 +20,13 @@
               <!-- blog item -->
               <% @blogs.each do |blog| %>
               <div class="blog-item">
-                <h2 class="blog-title"><a href="blog_single_post.html" ><%= blog.title %></a></h2>
+                <h2 class="blog-title"><%= link_to blog.title,blog %></h2>
                 <div class="blog-meta"><%="#{time_ago_in_words(blog.created_at)} ago"%> by <a href="#"><%= blog.user.email%></a></div>
                 <div class="blog-img">
                   <%=image_tag blog.photo.url(:medium), class:'img-full'%>
                 </div>
                 <p><%= blog.description %></p>
-                <p class="blog-links"><a href="blog_single_post.html" class="btn btn-theme btn-line soft ">Continue Reading &nbsp; &rarr;</a></p>
+                <p class="blog-links"><%=link_to 'Continue Reading ->', blog, class:'btn btn-theme btn-line soft '%></p>
               </div><!-- end blog item -->
               <% end %>
             </div><!-- end blog list -->

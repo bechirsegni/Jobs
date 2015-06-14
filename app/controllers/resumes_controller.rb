@@ -24,7 +24,7 @@ class ResumesController < ApplicationController
 
   def create
     @resume = current_user.resumes.build(resume_params)
-    if @resume.save
+    if @resume.save!
       redirect_to resumes_path
     else
       render :new

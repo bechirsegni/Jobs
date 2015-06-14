@@ -1,4 +1,6 @@
-<h1>My news Letter Emails </h1>
-<% @newsletters.each do |n|%>
-<%= n.email%><br/>
-<%end%>
+<h1>Newsletter Emails</h1>
+<ul class="list-group">
+  <% @newsletters.each do |n|%>
+  <li class="list-group-item"><%= n.email%></li>
+  <%end%>
+</ul>

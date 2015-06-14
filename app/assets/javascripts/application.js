@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require chosen-jquery
 //= require bootstrap
 //= require magnific-popup
 //= require theme
+//= require messages
 //= require turbolinks

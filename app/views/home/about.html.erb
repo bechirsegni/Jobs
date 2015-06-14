@@ -1,8 +1,9 @@
 <% content_for(:title, 'About us')%>
   <header class="main-header">
     <div class="container">
-      <div class="text-center logo no-margin-bottom"> <a href="index.html">
-        <%= image_tag 'logo.png'%></a></div>
+      <div class="text-center logo no-margin-bottom">
+        <%= link_to image_tag('logo.png'),root_path%>
+      </div>
       <h3 class="color-white text-center ">About Us</h3>
       <div class="white-space-50"></div>
     </div>
