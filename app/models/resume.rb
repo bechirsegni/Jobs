@@ -1,10 +1,13 @@
-require 'elasticsearch/model'
 class Resume < ActiveRecord::Base
-  searchkick
 
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
-  Resume.import
+  def self.search(search)
+    if search
+      where(['information LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
 
   belongs_to :user
   has_many :skillings , dependent: :destroy

@@ -5,9 +5,9 @@ class ResumesController < ApplicationController
 
   def index
     if params[:skills].present?
-      @resumes = Resume.tagged_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
-    elsif params[:query].present?
-      @resumes = Resume.search(params[:query])
+      @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
+    elsif
+      @resumes ||= Resume.search(params[:search]).page(params[:page])
     else
       @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5).page(params[:page])
     end

@@ -5,9 +5,9 @@ class JobsController < ApplicationController
 
   def index
     if params[:tags].present?
-      @resumes = Resume.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
-    elsif params[:query].present?
-      @jobs = Job.search(params[:query])
+      @jobs = Job.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
+    elsif
+      @jobs ||= Job.search(params[:search]).page(params[:page])
     else
       @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5).page params[:page]
     end

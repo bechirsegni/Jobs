@@ -16,6 +16,10 @@
     color:white;
 }
 
+
+
+
+
 #alert_wrapper {
     position: absolute;
     top: 63px;
@@ -30,4 +34,13 @@
     margin-right: 1rem;
     margin-bottom: 0;
     color:white;
+}
+
+.inbox {
+
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 20px;
+    margin-bottom: 0;
+
 }
