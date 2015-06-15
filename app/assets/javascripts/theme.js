@@ -130,7 +130,6 @@
 
 })(jQuery);
 
-$('.chosen-it').chosen()
 
 
 

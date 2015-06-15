@@ -1,8 +1,12 @@
 <% content_for(:title, 'Edit Your Account')%>
-<div class="container">
-  <div class="text-center logo"> <a href="index.html"><img src="assets/theme/images/logo.png" alt=""></a></div>
-</div>
-
+<header class="main-header">
+  <div class="container">
+    <div class="text-center logo no-margin-bottom">
+      <%= link_to image_tag('logo.png'),root_path%>
+    </div>
+    <h3 class="color-white text-center ">Account</h3>
+    <div class="white-space-50"></div>
+  </div>
 </header><!-- end main-header -->
 
 
@@ -16,7 +20,7 @@
         <div class="block-section text-center ">
           <img src="./assets/theme/images/people/4.jpg" class="img-rounded" alt="">
           <div class="white-space-20"></div>
-          <h4>Jhone Doe</h4>
+          <h4><%= current_user.name%></h4>
           <div class="white-space-20"></div>
           <ul class="list-unstyled">
             <li><a href="my_alerts.html"> My Alerts </a></li>

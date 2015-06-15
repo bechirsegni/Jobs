@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :companies
 
-  resources :blogs
+  resources :blogs  do
+    resources :comments
+  end
+
   resources :jobs
   resources :resumes
   resources :newsletters

@@ -1,13 +1,13 @@
 <% content_for(:title, 'Blog')%>
 <header class="main-header">
-    <div class="container">
-      <div class="text-center logo no-margin-bottom">
-        <%= link_to image_tag('logo.png'),root_path%>
-      </div>
-      <h3 class="color-white text-center ">Articles &amp; Blog</h3>
-      <div class="white-space-50"></div>
+  <div class="container">
+    <div class="text-center logo no-margin-bottom">
+      <%= link_to image_tag('logo.png'),root_path%>
     </div>
-  </header><!-- end main-header -->
+    <h3 class="color-white text-center ">Articles &amp; Blog</h3>
+    <div class="white-space-50"></div>
+  </div>
+</header><!-- end main-header -->
   <!-- body-content -->
   <div class="body-content clearfix" >
     <!-- blog block -->
@@ -20,8 +20,9 @@
               <!-- blog item -->
               <% @blogs.each do |blog| %>
               <div class="blog-item">
+                <%= link_to 'Destroy', blog , method: :delete, data: { confirm: 'Are you sure?' } %>
                 <h2 class="blog-title"><%= link_to blog.title,blog %></h2>
-                <div class="blog-meta"><%="#{time_ago_in_words(blog.created_at)} ago"%> by <a href="#"><%= blog.user.email%></a></div>
+                <div class="blog-meta"><%="#{time_ago_in_words(blog.created_at)} ago"%> by <a href="#"><%= blog.user.name%></a></div>
                 <div class="blog-img">
                   <%=image_tag blog.photo.url(:medium), class:'img-full'%>
                 </div>

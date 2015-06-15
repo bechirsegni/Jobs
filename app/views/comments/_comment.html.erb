@@ -1,0 +1,24 @@
+<div class="list-comments">
+  <h4>Comments <%=@comments.count%></h4>
+  <div class="white-space-10"></div>
+  <%@comments.each do |comment|%>
+  <div class="media post-comment">
+    <div class="media-left post-profile">
+      <%= image_tag comment.user.photo.url,class:'media-object'%>
+      <p class="color-heading"><%= comment.user.name %></p>
+    </div>
+    <div class="media-body">
+      <div class="post-desc-comment">
+        <p><%= comment.body %></p>
+        <p><strong class="margin-right-50"><%="#{time_ago_in_words(comment.created_at)} ago"%></strong></p>
+      </div>
+      <% if user_signed_in? %>
+          <p><%= link_to 'Delete', [comment.blog, comment],
+                         method: :delete,
+                         class: "button",
+                         data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
+    </div>
+  </div>
+  <%end%>
+</div>

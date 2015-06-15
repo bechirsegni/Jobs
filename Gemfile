@@ -11,7 +11,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
-gem 'chosen-rails', git: 'git://github.com/qpowell/chosen-rails.git'
 
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
@@ -21,11 +20,10 @@ gem 'paperclip', '~> 4.2.2'
 
 
 gem 'omniauth-facebook', '~> 2.0.1'
+gem 'fb_graph'
 gem 'omniauth-google-oauth2', '~> 0.2.6'
 gem 'omniauth-linkedin', '~> 0.2.0'
 gem 'mail_form'
-gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
-gem 'gravatar_image_tag'
 gem 'searchkick', '~> 0.9.0'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'

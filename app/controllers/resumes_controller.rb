@@ -4,12 +4,12 @@ class ResumesController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:skill].present?
-      @resumes = Resume.skilled_with(params[:skill]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
+    if params[:skills].present?
+      @resumes = Resume.tagged_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
     elsif params[:query].present?
       @resumes = Resume.search(params[:query])
     else
-      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 1).page(params[:page])
+      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5).page(params[:page])
     end
     @newsletter = Newsletter.new
   end
@@ -24,12 +24,18 @@ class ResumesController < ApplicationController
 
   def create
     @resume = current_user.resumes.build(resume_params)
+    @resume.cv = params[:resume][:cv]
     if @resume.save!
       redirect_to resumes_path, notice:'Resume was successfully Created'
     else
       render :new
     end
   end
+
+  def download
+    send_file @resume.cv.path, :type => @resume.cv_content_type, :disposition => 'inline'
+  end
+
 
   def edit
 
@@ -56,7 +62,7 @@ class ResumesController < ApplicationController
   end
 
   def resume_params
-    params.require(:resume).permit(:title,:location, :experience,:education,:information,:user_id,:skill_list )
+    params.require(:resume).permit(:title,:location, :experience,:education,:information,:user_id,:skill_list,:cv )
   end
 
   def correct_user

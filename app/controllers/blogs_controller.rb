@@ -8,6 +8,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @comments = Comment.all
   end
 
   def new

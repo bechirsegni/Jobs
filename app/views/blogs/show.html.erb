@@ -64,96 +64,19 @@
                       </div>
                     </div>
                   </div><!-- end blog post profile -->
-
                   <!-- list comments -->
-                  <div class="list-comments">
-                    <h4>Comments (14)</h4>
-                    <div class="white-space-10"></div>
-                    <div class="media post-comment">
-                      <div class="media-left post-profile">
-                        <img class="media-object" alt="64x64" src="assets/theme/images/people/8.jpg">
-                        <p class="color-heading">Hendro</p>
-                      </div>
-                      <div class="media-body">
-                        <div class="post-desc-comment">
-                          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.<p>Thank you,<br> Hendro</p>
-                          <p><strong class="margin-right-50">January 2014</strong> <a href="#">Reply</a></p>
-                        </div>
-
-                        <div class="media post-comment">
-                          <div class="media-left post-profile">
-                            <img class="media-object" alt="64x64" src="assets/theme/images/people/6.jpg">
-                            <p class="color-heading">Tania</p>
-                          </div>
-                          <div class="media-body">
-                            <div class="post-desc-comment">
-                              <h5 class="media-heading">Response from Tania:</h5>
-                              <p>Thank you Hendro, happy reading.</p>
-                              <p><strong class="margin-right-50">January 2014</strong> <a href="#">Reply</a></p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="media post-comment">
-                      <div class="media-left post-profile">
-                        <img class="media-object" alt="64x64" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHZpZXdCb3g9IjAgMCA2NCA2NCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+PGRlZnMvPjxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjE0LjUiIHk9IjMyIiBzdHlsZT0iZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQ7ZG9taW5hbnQtYmFzZWxpbmU6Y2VudHJhbCI+NjR4NjQ8L3RleHQ+PC9nPjwvc3ZnPg==">
-                        <p class="color-heading">Pedro</p>
-                      </div>
-                      <div class="media-body">
-                        <div class="post-desc-comment">
-                          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                          <p><strong class="margin-right-50">January 2014</strong> <a href="#">Reply</a></p>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="media post-comment">
-                      <div class="media-left post-profile">
-                        <img class="media-object" alt="64x64" src="assets/theme/images/people/2.jpg">
-                        <p class="color-heading">Pedro</p>
-                      </div>
-                      <div class="media-body">
-                        <div class="post-desc-comment">
-                          <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                          <p><strong class="margin-right-50">January 2014</strong> <a href="#">Reply</a></p>
-                        </div>
-                      </div>
-                    </div>
-                  </div><!-- end list comments -->
-
+                  <%= render 'comments/comment'%>
+                  <!-- end list comments -->
                   <!-- form comments -->
-                  <h4>Leave a Comment</h4>
-                  <div class="white-space-30"></div>
-                  <form role="form">
-                    <div class="row">
-                      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                          <input type="text" placeholder="Name" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                        <div class="form-group">
-                          <input type="text" placeholder="Email" class="form-control">
-                        </div>
-                      </div>
-                      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <div class="form-group">
-                          <textarea placeholder="Comment" class="form-control" rows="6"></textarea>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <a href="#" class="btn btn-t-primary btn-theme">Post comment</a>
-                    </div>
-                  </form><!-- end form comments -->
-
+                  <% if user_signed_in? %>
+                  <%= render 'comments/form'%>
+                  <%else%>
+                  SIGN IN TO LEAVE A COMMENT
+                  <%end%>
+                  <!-- end form comments -->
                 </div>
               </div><!-- end blog details -->
-
-
-
             </div>
-
             <!-- pager -->
             <nav>
               <ul class="pager">

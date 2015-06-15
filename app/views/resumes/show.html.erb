@@ -160,7 +160,7 @@
                   <%= image_tag @resume.user.photo.url%>
                  </div>
                 <div class="desc">
-                  <h2><%= @resume.user.email%></h2>
+                  <h2><%= @resume.user.name%></h2>
                   <h4><%= @resume.title%></h4>
                   <p><%=@resume.location%></p>
                   <p>Skills: <%= raw @resume.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
@@ -182,10 +182,10 @@
             <div class="block-section " id="affix-box">
               <div class="text-right">
                 <p><a href="#" class="btn btn-theme btn-line dark btn-block-xs">Save Resume</a></p>
-                <p>Updated: February 16, 2015</p>
+                <p>Updated: <%="#{time_ago_in_words(@resume.created_at)} ago"%></p>
                 <p><a href="#modal-apply"  data-toggle="modal" class="btn btn-theme btn-t-primary btn-block-xs">Forward by Email</a></p>
                 <p><a href="#" class="btn btn-theme btn-t-primary btn-block-xs">Contact Bryon</a></p>
-                <p><a href="#" class="btn btn-theme btn-t-primary btn-block-xs">Download This Resume</a></p>
+                <p><%= link_to 'Download This Resume', @resume.cv.url, class:'btn btn-theme btn-t-primary btn-block-xs'%></p>
                 <p>Share This Resume <span class="space-inline-10"></span> :</p>
                 <p class="share-btns">
                   <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i></a>

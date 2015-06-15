@@ -4,12 +4,12 @@ class JobsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-    if params[:skill].present?
-      @resumes = Resume.tagged_with(params[:skill]).paginate(:page => params[:page], :per_page => 1).page(params[:page])
+    if params[:tags].present?
+      @resumes = Resume.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
     elsif params[:query].present?
       @jobs = Job.search(params[:query])
     else
-      @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 2).page params[:page]
+      @jobs = Job.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5).page params[:page]
     end
     @newsletter = Newsletter.new
   end
