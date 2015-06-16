@@ -1,0 +1,38 @@
+<header class="main-header">
+  <!-- form search area-->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="logo text-center-sm inline">
+          <%= link_to image_tag('logo.png'),root_path%>
+          <div class="label-add">Resume</div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <!-- form search  -->
+      <%= form_tag resumes_path,class:'form-search-list', :method => 'get' do %>
+        <div class="row">
+            <div class="col-sm-5 col-xs-6">
+              <div class="form-group">
+                <label class="color-white">What</label>
+                 <%= text_field_tag :search, params[:search],class:'form-control',placeholder:'Resume title, skill or company name' %>
+              </div>
+            </div>
+            <div class="col-sm-5 col-xs-6">
+              <div class="form-group">
+                <label class="color-white">Where</label>
+                <%= text_field_tag :location, params[:location],class:'form-control',placeholder:'City, province, or region' %>
+              </div>
+            </div>
+            <div class="col-sm-2 col-xs-12">
+              <div class="form-group">
+                <label class="hidden-xs">&nbsp;</label>
+                <%= submit_tag "Search",class:'btn btn-block btn-theme  btn-success' %>
+              </div>
+            </div>
+          </div>
+        <% end %><!-- end form search  -->
+      </div>
+    </div>
+  </div><!-- end form search area-->
+</header><!-- end main-header -->

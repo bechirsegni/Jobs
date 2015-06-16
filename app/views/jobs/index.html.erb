@@ -1,0 +1,67 @@
+<% content_for(:title, 'Find Jobs')%>
+<%= render 'jobs/parts/search'%>
+  <!-- body-content -->
+  <div class="body-content clearfix" >
+    <div class="bg-color2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <!-- box listing -->
+            <div class="block-section-sm box-list-area">
+              <!-- desc top -->
+              <div class="row hidden-xs">
+                <div class="col-sm-6  ">
+                  <p><strong class="color-black">PHP jobs in United States</strong></p>
+                </div>
+                <div class="col-sm-6">
+                  <p class="text-right">
+                    Jobs 1 to 5 of <%= @jobs.count%>
+                  </p>
+                </div>
+              </div><!-- end desc top -->
+              <!-- item list -->
+              <div class="box-list">
+                <% @jobs.each do |job|%>
+                <div class="item">
+                  <div class="row">
+                    <div class="col-md-1 hidden-sm hidden-xs"><div class="img-item">
+                      <%=image_tag '1.jpg'%></div></div>
+                    <div class="col-md-11">
+                      <%= link_to 'Destroy', job , method: :delete, data: { confirm: 'Are you sure?' } %>
+
+                      <h3 class="no-margin-top"><a class=""><%=link_to job.title,job %> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
+                      <h5><span class="color-black"><%=job.company_name%></span> - <span class="color-white-mute"><%=job.location%></span></h5>
+                      <p class="text-truncate "><%=job.description.html_safe%></p>
+                      <p>Skills: <%= raw job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+                      <div>
+                        <span class="color-white-mute"><%="#{time_ago_in_words(job.created_at)} ago"%></span> -
+                        <a href="#need-login" data-toggle="modal" class="btn btn-xs btn-theme btn-default">save job</a> -
+                        <a href="#modal-email" data-toggle="modal"  class="btn btn-theme btn-xs btn-default">email</a> -
+                        <%=link_to 'more ..' , job ,class:'btn btn-theme btn-xs btn-default' %>
+                      </div>
+                    </div>
+                  </div>
+                </div><% end %><!-- end item list -->
+              </div>
+              <!-- form get alert -->
+              <%= render 'jobs/parts/newsletter'%>
+              <!-- end form get alert -->
+              <!-- pagination -->
+              <nav >
+                <ul class="pagination pagination-theme  no-margin">
+                  <li>
+                    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class:'pagination pagination-theme pagination-lg' %>
+                  </li>
+                </ul>
+              </nav><!-- pagination -->
+            </div><!-- end box listing -->
+          </div>
+          <%= render 'jobs/parts/sort'%>
+        </div>
+      </div>
+    </div>
+    <!-- modal need login -->
+    <%= render 'jobs/parts/login'%>
+    <!-- end modal  need login -->
+  </div>
+<!--end body-content -->

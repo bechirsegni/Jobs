@@ -8,8 +8,10 @@
 /.bundle
 .idea/*
 .DS_Store
-/config/database.yml
+
 # Ignore all logfiles and tempfiles.
 /log/*
 !/log/.keep
 /tmp
+newrelic.yml
+public/system/*

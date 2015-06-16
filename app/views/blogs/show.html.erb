@@ -1,0 +1,87 @@
+<% content_for :title do %> <%=@blog.title%> <% end %>
+  <header class="main-header">
+    <div class="container">
+      <div class="text-center logo no-margin-bottom">
+        <a href="index.html"><%= image_tag 'logo.png'%></a></div>
+      <h3 class="color-white text-center ">Articles &amp; Blog</h3>
+      <div class="white-space-50"></div>
+    </div>
+  </header><!-- end main-header -->
+
+  <!-- body-content -->
+  <div class="body-content clearfix" >
+
+    <!-- blog single post -->
+    <div class="bg-color1 block-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="blog-list">
+
+              <!-- blog details -->
+              <div class="blog-item">
+
+                <h2 class="blog-title"><a href="blog_single_post.html" ><%=@blog.title%></a></h2>
+                <div class="blog-meta"><%="#{time_ago_in_words(@blog.created_at)} ago"%> by <a href="#"><%= @blog.user.email%></a></div>
+                <div class="blog-img">
+                  <%=image_tag @blog.photo.url(:medium), class:'img-full'%>
+                </div>
+                <p>Tags: <%=@blog.tags %></p>
+
+                <p><%= @blog.description%></p>
+
+                <div class="blog-desc-bottom">
+                  <!-- tags -->
+                  <p class="blog-tags clearfix">
+                    <span class="space-inline-100">Tags</span>
+                    <a href="#" class="btn btn-line soft btn-theme btn-xs"><%= @blog.tags%></a>
+                  </p><!-- end tags -->
+
+                  <!-- share icons -->
+                  <p class="socials  no-margin">
+                    <span class="space-inline-100">Share</span>
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                  </p><!-- end share icons -->
+
+                  <!-- blog post profile -->
+                  <div class="media post-comment post-profile-blog clearfix">
+                    <div class="media-left post-profile ">
+                      <img class="media-object" alt="124x124" src="assets/theme/images/people/7.jpg">
+                    </div>
+                    <div class="media-body">
+                      <div class="post-desc-comment no-margin">
+                        <strong>About</strong>
+                        <h5 class="no-margin-top">William Frierson</h5>
+                        <p>Naomi Findlay is the award winning founder of the International Institute of Home Staging (IIHS) and SILK Home Staging &amp; Styling. She is also the author of a bestselling book, 'How to get job in instant'.</p>
+                        <ul class="list-inline author-links">
+                          <li><a href="#">Profile</a></li>
+                          <li><a href="#" target="_blank">Website</a></li>
+                          <li><a rel="publisher" href="#" target="_blank">Google+</a></li>
+                          <li><a href="#" target="_blank">Twitter</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div><!-- end blog post profile -->
+                  <!-- list comments -->
+                  <!-- end list comments -->
+                  <!-- form comments -->
+
+                  SIGN IN TO LEAVE A COMMENT
+                  <!-- end form comments -->
+                </div>
+              </div><!-- end blog details -->
+            </div>
+            <!-- pager -->
+            <nav>
+              <ul class="pager">
+                <li class="previous"><a href="#" class="btn-theme btn-lg"><span aria-hidden="true" class="hidden-xs">&larr;</span> Prev Post</a></li>
+                <li class="next"><a href="#" class="btn-theme btn-lg">Next Post <span aria-hidden="true" class="hidden-xs">&rarr;</span></a></li>
+              </ul>
+            </nav> <!-- end pager -->
+          </div>
+        </div>
+      </div>
+    </div><!-- end blog single post -->
+  </div><!--end body-content -->

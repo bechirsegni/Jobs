@@ -1,0 +1,57 @@
+<% content_for(:title, 'Home')%>
+ <header class="main-header">
+    <div class="hero-header">
+      <div class="inner-hero-header">
+        <div class="container">
+          <div class="text-center logo">
+            <%= link_to image_tag('logo.png'),root_path%>
+          </div>
+          <div class="relative">
+            <i class="fa fa-globe ic-fade-globe"></i>
+            <!-- form search -->
+            <form class="form-search-home" method="post" action="job_list.html">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>What</label>
+                    <input class="form-control  input-lg" placeholder="job title, keywords or company name">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Where</label>
+                    <input class="form-control input-lg" placeholder="city, province, or region">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a Jobs</button>
+              </div>
+            </form> <!-- end form search -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header><!-- end main-header -->
+  <!-- body-content -->
+  <div class="body-content clearfix" >
+    <!-- box simple static -->
+    <div class="block-section bg-color1">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h3 class="font-2x ">3</h3>
+            <h4 class="color-text">Registered Member</h4>
+          </div>
+          <div class="col-md-4">
+            <h3 class="font-2x ">3</h3>
+            <h4 class="color-text">Joblist Posted</h4>
+          </div>
+          <div class="col-md-4">
+            <h3 class="font-2x ">3</h3>
+            <h4 class="color-text">Awesome Resumes</h4>
+          </div>
+        </div>
+      </div>
+    </div><!-- end box simple static -->
+  </div><!--end body-content -->

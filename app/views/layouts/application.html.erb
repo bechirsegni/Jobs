@@ -1,14 +1,41 @@
 <!DOCTYPE html>
-<html>
+<%= ie_conditional_tag :html, class: 'ie ie9' %>
 <head>
-  <title>Jobs</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title><%= full_title(yield :title)%></title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag :modernizr , 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <meta name="description" content="The best jobs in startups, technology and digital agencies." />
+  <meta name="twitter:card" content="Tech Jobs in London">
+  <meta name="twitter:title" content="Tech Jobs in London">
+  <meta name="twitter:description" content="London jobs in startups, technology and digital agencies">
+  <meta name="twitter:creator" content="@riklomas">
+  <meta name="twitter:image" content="http://www.techjobsin.london/social.png">
+  <meta property="og:title" content="Tech Jobs in London" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="http://techjobsin.london" />
+  <meta property="og:image" content="http://www.techjobsin.london/social.png" />
+  <meta property="og:description" content="London jobs in startups, technology and digital agencies" />
+  <meta property="og:site_name" content="Tech Jobs in London" />
 </head>
 <body>
-
+<%if notice %>
+    <div id="notice_wrapper">
+      <p class="notice"> <%= notice %></p>
+    </div>
+<%elsif alert %>
+    <div id="alert_wrapper">
+      <p class="alert"> <%= alert %></p>
+    </div>
+<%end%>
+<div class="wrapper">
+  <%= render 'common/nav'%>
 <%= yield %>
-
+  <%= render 'common/footer'%>
+</div>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>

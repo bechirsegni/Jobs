@@ -1,0 +1,67 @@
+<% content_for :title do %> <%=@resume.title%> <% end %>
+<%= render'resumes/parts/search'%>
+<!-- body-content -->
+  <div class="body-content clearfix" >
+    <!-- link top -->
+    <div class="bg-color2 block-section-xs line-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6 hidden-xs">
+            <div>Resume details :</div>
+          </div>
+          <div class="col-sm-6">
+            <div class="text-right">
+              <%= link_to 'Go back to resume listings', resumes_path %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- end link top -->
+    <div class="bg-color2">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <!-- box item details -->
+            <div class="block-section box-item-details">
+              <div class="resume-block">
+                <div class="img-profile">
+                  <%= image_tag @resume.user.photo.url%>
+                 </div>
+                <div class="desc">
+                  <h2><%= @resume.user.name%></h2>
+                  <h4><%= @resume.title%></h4>
+                  <p><%=@resume.location%></p>
+                  <p>Skills: <%= raw @resume.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
+                  <h3 class="resume-sub-title"><span>Work Experience</span></h3>
+                  <h5><%= @resume.experience%></h5>
+                  <h3 class="resume-sub-title"><span>Education</span></h3>
+                  <h5><%= @resume.education%></h5>
+                  <h3  class="resume-sub-title"><span>Additional Information</span></h3>
+                  <h5><%= @resume.information%></h5>
+                </div>
+              </div>
+            </div><!-- end box item details -->
+          </div>
+          <div class="col-md-3">
+            <!-- box affix right -->
+            <div class="block-section " id="affix-box">
+              <div class="text-right">
+                <p><a href="#" class="btn btn-theme btn-line dark btn-block-xs">Save Resume</a></p>
+                <p>Updated: <%="#{time_ago_in_words(@resume.created_at)} ago"%></p>
+                <p><a href="#modal-apply"  data-toggle="modal" class="btn btn-theme btn-t-primary btn-block-xs">Forward by Email</a></p>
+                <p><a href="#" class="btn btn-theme btn-t-primary btn-block-xs">Contact Bryon</a></p>
+                <p><%= link_to 'Download This Resume', @resume.cv.url, class:'btn btn-theme btn-t-primary btn-block-xs'%></p>
+                <p>Share This Resume <span class="space-inline-10"></span> :</p>
+                <p class="share-btns">
+                  <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i></a>
+                  <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i></a>
+                  <a href="#" class="btn btn-danger"><i class="fa fa-google-plus"></i></a>
+                  <a href="#" class="btn btn-warning"><i class="fa fa-pinterest"></i></a>
+                </p>
+              </div>
+            </div><!-- box affix right -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!--end body-content -->
