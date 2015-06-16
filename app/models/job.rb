@@ -1,5 +1,9 @@
 class Job < ActiveRecord::Base
 
+  def to_param
+    "#{id} #{title}".parameterize
+  end
+
   def self.search(search)
     if search
       where(['title LIKE ?', "%#{search}%"])

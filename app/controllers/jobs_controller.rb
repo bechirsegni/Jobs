@@ -65,7 +65,7 @@ class JobsController < ApplicationController
   end
 
   def correct_user
-    @job = current_user.jobs.find_by(id: params[:id])
+    @job = current_user.jobs.find_by_id(params[:id])
     redirect_to jobs_path, notice: "Not authorized to edit this job" if @job.nil?
   end
 

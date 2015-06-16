@@ -25,6 +25,5 @@ class User < ActiveRecord::Base
   has_many :resumes , dependent: :destroy
   has_many :blogs , dependent: :destroy
   has_many :companies , dependent: :destroy
-  has_many :comments
 
 end

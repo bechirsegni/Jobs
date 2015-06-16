@@ -34,7 +34,7 @@
                       <%= image_tag r.user.photo.url%>
                     </div></div>
                     <div class="col-md-11">
-                      <%= link_to 'Destroy', r , method: :delete, data: { confirm: 'Are you sure?' } %>
+                      <%= raw link_to 'Destroy', r , method: :delete, data: { confirm: 'Are you sure?' } %>
                       <h3 class="no-margin-top"><%=link_to r.user.name, r%> <i class="fa fa-link color-white-mute font-1x"></i></h3>
                       <h5><span class="color-black"><%=r.location%></span></h5>
                       <p><%=r.title%> - <span class="color-white-mute"><%= r.user.email%> </span> <br/>

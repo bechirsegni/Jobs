@@ -1,28 +1,13 @@
 Rails.application.routes.draw do
 
-
   get 'tags/:tag', to: 'jobs#index', as: :tag
   get 'skills/:skill', to: 'resumes#index', as: :skill
 
-
   resources :companies
-
-  resources :blogs  do
-    resources :comments
-  end
-
+  resources :blogs
   resources :jobs
   resources :resumes
   resources :newsletters
-  resources :conversations, only: [:index, :show, :destroy] do
-    member do
-      post :reply
-      post :restore
-      post :mark_as_read
-    end
-  end
-  resources :messages, only: [:new, :create]
-
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'

@@ -33,7 +33,6 @@ gem 'newrelic_rpm', '~> 3.12.0.288'
 group :development, :test do
   gem 'byebug', '~> 5.0.0'
   gem 'web-console', '~> 2.0'
-  gem 'spring', '~> 1.3.6'
   gem 'lol_dba', '~> 2.0.0'
   gem 'better_errors', '~> 2.1.1'
   gem 'bullet', '~> 4.14.7'

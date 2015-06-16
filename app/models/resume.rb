@@ -1,5 +1,4 @@
 class Resume < ActiveRecord::Base
-
   belongs_to :user
   has_many :skillings , dependent: :destroy
   has_many :skills, through: :skillings , dependent: :destroy
@@ -7,6 +6,10 @@ class Resume < ActiveRecord::Base
   has_attached_file :cv, styles: {thumbnail: "60x60#"}
   validates_attachment :cv, content_type: { content_type: "application/pdf" }
 
+  def to_param
+    new_record?
+    "#{id} #{title}".parameterize
+  end
 
   def self.search(search)
     if search

@@ -66,7 +66,7 @@ class ResumesController < ApplicationController
   end
 
   def correct_user
-    @resume = current_user.resumes.find_by(id: params[:id])
+    @resume = current_user.resumes.find_by_id(params[:id])
     redirect_to resumes_path, notice: "Not authorized to edit this job" if @resume.nil?
   end
 end

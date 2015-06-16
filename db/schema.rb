@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(version: 20150615080736) do
     t.string   "photo_content_type", limit: 255
     t.integer  "photo_file_size",    limit: 4
     t.datetime "photo_updated_at"
+    t.string   "slug",               limit: 255
   end
 
+  add_index "blogs", ["slug"], name: "index_blogs_on_slug", using: :btree
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
@@ -33,18 +35,6 @@ ActiveRecord::Schema.define(version: 20150615080736) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
-
-  create_table "comments", force: :cascade do |t|
-    t.string   "commenter",  limit: 255
-    t.text     "body",       limit: 65535
-    t.integer  "blog_id",    limit: 4
-    t.string   "user_id",    limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-  end
-
-  add_index "comments", ["blog_id"], name: "index_comments_on_blog_id", using: :btree
-  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.text     "about",      limit: 65535
@@ -94,8 +84,10 @@ ActiveRecord::Schema.define(version: 20150615080736) do
     t.string   "cv_content_type", limit: 255
     t.integer  "cv_file_size",    limit: 4
     t.datetime "cv_updated_at"
+    t.string   "slug",            limit: 255
   end
 
+  add_index "resumes", ["slug"], name: "index_resumes_on_slug", using: :btree
   add_index "resumes", ["user_id"], name: "index_resumes_on_user_id", using: :btree
 
   create_table "skillings", force: :cascade do |t|
@@ -155,7 +147,6 @@ ActiveRecord::Schema.define(version: 20150615080736) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
-  add_foreign_key "comments", "blogs"
   add_foreign_key "skillings", "resumes"
   add_foreign_key "skillings", "skills"
   add_foreign_key "taggings", "jobs"
