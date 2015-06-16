@@ -2,8 +2,7 @@ class HomeController < ApplicationController
 
 
   def index
-    @jobs = Job.all
-    @resumes = Resume.all
+
   end
 
   def about

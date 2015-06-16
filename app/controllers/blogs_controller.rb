@@ -4,11 +4,10 @@ class BlogsController < ApplicationController
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
-      @blogs = Blog.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 4).page(params[:page])
+      @blogs = Blog.all.paginate(:page => params[:page], :per_page => 4).page(params[:page]).order("id DESC").includes(:user)
   end
 
   def show
-    @comments = Comment.all
   end
 
   def new

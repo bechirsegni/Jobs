@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.0'
-gem 'better_errors', '~> 2.1.1'
+gem 'mysql2'
 gem 'sass-rails'
 gem 'sprockets-rails', '~> 2.3.1'
 gem 'uglifier', '>= 1.3.0'
@@ -33,8 +33,10 @@ gem 'newrelic_rpm', '~> 3.12.0.288'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-  gem 'mysql2'
   gem 'spring', '~> 1.3.6'
+  gem 'lol_dba', '~> 2.0.0'
+  gem 'better_errors', '~> 2.1.1'
+  gem 'bullet', '~> 4.14.7'
 end
 
 

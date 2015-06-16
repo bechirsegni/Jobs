@@ -5,11 +5,11 @@ class ResumesController < ApplicationController
 
   def index
     if params[:skills].present?
-      @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page])
+      @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     elsif
-      @resumes ||= Resume.search(params[:search]).page(params[:page])
+      @resumes ||= Resume.search(params[:search]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     else
-      @resumes = Resume.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 5).page(params[:page])
+      @resumes = Resume.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     end
     @newsletter = Newsletter.new
   end

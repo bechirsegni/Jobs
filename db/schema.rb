@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615003100) do
+ActiveRecord::Schema.define(version: 20150615080736) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20150615003100) do
     t.integer  "photo_file_size",    limit: 4
     t.datetime "photo_updated_at"
   end
+
+  add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -42,6 +44,7 @@ ActiveRecord::Schema.define(version: 20150615003100) do
   end
 
   add_index "comments", ["blog_id"], name: "index_comments_on_blog_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "companies", force: :cascade do |t|
     t.text     "about",      limit: 65535
@@ -51,6 +54,8 @@ ActiveRecord::Schema.define(version: 20150615003100) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
+
+  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -63,7 +68,12 @@ ActiveRecord::Schema.define(version: 20150615003100) do
     t.integer  "category_id",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "company_id",   limit: 4
   end
+
+  add_index "jobs", ["category_id"], name: "index_jobs_on_category_id", using: :btree
+  add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "newsletters", force: :cascade do |t|
     t.string   "email",      limit: 255
@@ -85,6 +95,8 @@ ActiveRecord::Schema.define(version: 20150615003100) do
     t.integer  "cv_file_size",    limit: 4
     t.datetime "cv_updated_at"
   end
+
+  add_index "resumes", ["user_id"], name: "index_resumes_on_user_id", using: :btree
 
   create_table "skillings", force: :cascade do |t|
     t.integer  "skill_id",   limit: 4

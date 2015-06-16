@@ -65,14 +65,10 @@
                     </div>
                   </div><!-- end blog post profile -->
                   <!-- list comments -->
-                  <%= render 'comments/comment'%>
                   <!-- end list comments -->
                   <!-- form comments -->
-                  <% if user_signed_in? %>
-                  <%= render 'comments/form'%>
-                  <%else%>
+
                   SIGN IN TO LEAVE A COMMENT
-                  <%end%>
                   <!-- end form comments -->
                 </div>
               </div><!-- end blog details -->
