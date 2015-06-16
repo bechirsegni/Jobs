@@ -20,10 +20,9 @@ class Job < ActiveRecord::Base
     end
   end
 
-
   belongs_to :user
   belongs_to :company
-  belongs_to :category , dependent: :destroy
+  belongs_to :category
   has_many :taggings, :dependent => :destroy
   has_many :tags, through: :taggings
 
