@@ -8,6 +8,14 @@ class Job < ActiveRecord::Base
     end
   end
 
+  def self.location(location)
+    if location
+      where(['location LIKE ?', "%#{location}%"])
+    else
+      all
+    end
+  end
+
 
   belongs_to :user
   belongs_to :company

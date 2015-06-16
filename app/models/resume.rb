@@ -1,20 +1,28 @@
 class Resume < ActiveRecord::Base
 
-  def self.search(search)
-    if search
-      where(['information LIKE ?', "%#{search}%"])
-    else
-      all
-    end
-  end
-
-
   belongs_to :user
   has_many :skillings , dependent: :destroy
   has_many :skills, through: :skillings , dependent: :destroy
 
   has_attached_file :cv, styles: {thumbnail: "60x60#"}
   validates_attachment :cv, content_type: { content_type: "application/pdf" }
+
+
+  def self.search(search)
+    if search
+      where(['title LIKE ?', "%#{search}%"])
+    else
+      all
+    end
+  end
+
+  def self.location(location)
+    if location
+      where(['location LIKE ?', "%#{location}%"])
+    else
+      all
+    end
+  end
 
   def self.skilled_with(name)
     Skill.find_by_name!(name).resumes

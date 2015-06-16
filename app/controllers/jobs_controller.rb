@@ -7,7 +7,7 @@ class JobsController < ApplicationController
     if params[:tags].present?
       @jobs = Job.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
     elsif
-      @jobs ||= Job.search(params[:search]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
+      @jobs ||= Job.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
     else
       @jobs = Job.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
     end

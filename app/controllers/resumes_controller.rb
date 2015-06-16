@@ -7,7 +7,7 @@ class ResumesController < ApplicationController
     if params[:skills].present?
       @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     elsif
-      @resumes ||= Resume.search(params[:search]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
+      @resumes ||= Resume.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     else
       @resumes = Resume.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
     end
