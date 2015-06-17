@@ -32,7 +32,6 @@
                       <h3 class="no-margin-top"><a class=""><%=link_to job.title,job %> <i class="fa fa-link color-white-mute font-1x"></i></a></h3>
                       <h5><span class="color-black"><%=job.company_name%></span> - <span class="color-white-mute"><%=job.location%></span></h5>
                       <p class="text-truncate "><%=job.description.html_safe%></p>
-                      <p>Skills: <%= raw job.tags.map(&:name).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
                       <div>
                         <span class="color-white-mute"><%="#{time_ago_in_words(job.created_at)} ago"%></span> -
                         <a href="#need-login" data-toggle="modal" class="btn btn-xs btn-theme btn-default">save job</a> -

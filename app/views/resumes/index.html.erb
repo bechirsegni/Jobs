@@ -40,7 +40,6 @@
                       <p><%=r.title%> - <span class="color-white-mute"><%= r.user.email%> </span> <br/>
                         <%=r.information%>
                         </p>
-                      <p>Skills: <%= raw r.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
                       <div>
                         <span class="color-white-mute"><%="#{time_ago_in_words(r.created_at)} ago"%></span> -
                         <%= link_to 'Download Resume', r.cv.url, class:'btn btn-xs btn-theme btn-default'%>
@@ -110,9 +109,7 @@
                 <div class="collapse in" id="s_collapse_1">
                   <div class="list-area">
                     <ul class="list-unstyled">
-                      <% tag_cloud Resume.skill_counts, %w{s m l} do |tag, css_class| %>
-                          <%= link_to tag.name.slice(0,1).capitalize + tag.name.slice(1..-1), skill_path(tag.name), class: css_class %>
-                      <% end %>
+
                     </ul>
                   </div>
                 </div>
