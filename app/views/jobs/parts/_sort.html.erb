@@ -15,7 +15,9 @@
       <div class="collapse in" id="s_collapse_1">
         <div class="list-area">
           <ul class="list-unstyled">
-
+            <% tag_cloud Job.tag_counts, %w{s m l} do |tag, css_class| %>
+                <%= link_to tag.name.slice(0,1).capitalize + tag.name.slice(1..-1), tag_path(tag.name), class: css_class %>
+            <% end %>
           </ul>
         </div>
       </div>
