@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  database: jobs_production
-  username: root
-  password: <%= ENV['APSCO_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: drkibodvwiidxz
+  password: EqymORKjR514vUVAkM6MlLOrYD
+  database: heroku pg:psql --app techjobs DATABASE
