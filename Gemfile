@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.2.1'
-gem 'mysql2', '~> 0.3.18'
 gem 'sass', '~> 3.4.14'
 gem 'sass-rails', '~> 5.0.3'
 gem 'sprockets-rails', '~> 2.3.1'
@@ -36,6 +35,12 @@ group :development, :test do
   gem 'lol_dba', '~> 2.0.0'
   gem 'better_errors', '~> 2.1.1'
   gem 'bullet', '~> 4.14.7'
+  gem 'mysql2', '~> 0.3.18'
+end
+
+group :production do
+  gem 'pg', '~> 0.18.2'
+  gem 'rails_12factor', '~> 0.0.3'
 end
 
 
