@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: Apsco_production
-  username: Apsco
+  database: jobs_production
+  username: root
   password: <%= ENV['APSCO_DATABASE_PASSWORD'] %>

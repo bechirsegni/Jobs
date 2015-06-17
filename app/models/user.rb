@@ -6,8 +6,7 @@ class User < ActiveRecord::Base
 
 
   has_attached_file :photo, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "geek.jpg", dependent: :destroy
-  validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/, dependent: :destroy
-
+  validates_attachment_content_type :photo, :content_type => ['image/jpeg', 'image/png','image/gif']
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
@@ -24,6 +23,6 @@ class User < ActiveRecord::Base
   has_many :jobs , dependent: :destroy
   has_many :resumes , dependent: :destroy
   has_many :blogs , dependent: :destroy
-  has_many :companies , dependent: :destroy
+  has_one :company , dependent: :destroy
 
 end

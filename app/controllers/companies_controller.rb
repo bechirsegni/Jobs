@@ -11,7 +11,7 @@ class CompaniesController < ApplicationController
   end
 
   def new
-    @company = current_user.companies.build
+    @company = current_user.build_company
   end
 
   def edit
@@ -19,7 +19,7 @@ class CompaniesController < ApplicationController
 
 
   def create
-    @company = current_user.companies.build(company_params)
+    @company = current_user.build_company(company_params)
     if @company.save!
       redirect_to @company, notice: 'Company was successfully created.'
     else
@@ -42,7 +42,7 @@ class CompaniesController < ApplicationController
 
   private
     def set_company
-      @company = Company.find(params[:id])
+      @company = Company.find_by(params[:id])
     end
 
     def company_params
@@ -50,7 +50,7 @@ class CompaniesController < ApplicationController
     end
 
   def correct_user
-    @company = current_user.companies.find_by(id: params[:id])
+    @company = current_user.company
     redirect_to companies_path, notice: "Not authorized to edit this job" if @company.nil?
   end
 end

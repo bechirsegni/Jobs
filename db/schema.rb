@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615080736) do
+ActiveRecord::Schema.define(version: 20150617033200) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -24,10 +24,8 @@ ActiveRecord::Schema.define(version: 20150615080736) do
     t.string   "photo_content_type", limit: 255
     t.integer  "photo_file_size",    limit: 4
     t.datetime "photo_updated_at"
-    t.string   "slug",               limit: 255
   end
 
-  add_index "blogs", ["slug"], name: "index_blogs_on_slug", using: :btree
   add_index "blogs", ["user_id"], name: "index_blogs_on_user_id", using: :btree
 
   create_table "categories", force: :cascade do |t|
@@ -63,7 +61,6 @@ ActiveRecord::Schema.define(version: 20150615080736) do
 
   add_index "jobs", ["category_id"], name: "index_jobs_on_category_id", using: :btree
   add_index "jobs", ["company_id"], name: "index_jobs_on_company_id", using: :btree
-  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id", using: :btree
 
   create_table "newsletters", force: :cascade do |t|
     t.string   "email",      limit: 255
@@ -84,11 +81,7 @@ ActiveRecord::Schema.define(version: 20150615080736) do
     t.string   "cv_content_type", limit: 255
     t.integer  "cv_file_size",    limit: 4
     t.datetime "cv_updated_at"
-    t.string   "slug",            limit: 255
   end
-
-  add_index "resumes", ["slug"], name: "index_resumes_on_slug", using: :btree
-  add_index "resumes", ["user_id"], name: "index_resumes_on_user_id", using: :btree
 
   create_table "skillings", force: :cascade do |t|
     t.integer  "skill_id",   limit: 4
