@@ -40,85 +40,15 @@
             <h3 class="title" id="cp-about">Address</h3>
             <%= @company.address%>
             <!-- Reviews list-->
-            <h4>Company Attributes</h4>
-            <p></p>
-            <div class="row">
-              <div class="col-sm-6">
-                <p><span class="rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
-                        </span> Job Work/Life Balance</p>
-                <p><span class="rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
-                        </span> Compensation/Benefits</p>
-                <p><span class="rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
-                        </span> Job Security/Advancement</p>
-              </div>
-              <div class="col-sm-6">
-                <p><span class="rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
-                        </span> Management</p>
-                <p><span class="rate">
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star"></i>
-                          <i class="fa fa-star-half-o"></i>
-                        </span>Job Culture</p>
-
-              </div>
-            </div>
-
-            <!-- galery photos-->
-            <h3 class="title" id="cp-photos">Photos <small>(8)</small></h3>
-            <div class="row company-photos galery-popup-area">
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic01"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic02"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic03"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic04"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic05"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic06"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic07"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-              <div class="col-sm-3 col-xs-6">
-                <a href="http://placehold.it/900x450" class="galery-popup" title="pic08"><img src="http://placehold.it/500x350" alt="" class="img-full"></a>
-              </div>
-            </div>
-
             <!-- jobs list-->
-            <h3 class="title" id="cp-jobs">jobs <small>(303)</small></h3>
+            <h3 class="title" id="cp-jobs">jobs <small><%=@company.user.jobs.count%></small></h3>
             <div class="mt-20">
-              <h4><a href="job_details.html" class="">PHP Engineer <i class="fa fa-link color-white-mute font-1x"></i></a></h4>
-              <p>Oak Ridge, TN</p>
+              <%@company.user.jobs.each do |job|%>
+              <h4><%= link_to job do%>
+                    <%=job.title%><i class="fa fa-link color-white-mute font-1x"></i>
+                <%end%></h4>
+              <p><%= job.location%></p>
+              <%end%>
             </div>
           </div><!-- end box item details -->
 

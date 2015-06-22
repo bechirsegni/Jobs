@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621031423) do
+ActiveRecord::Schema.define(version: 20150622060837) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150621031423) do
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
     t.string   "website",           limit: 255
+    t.string   "name",              limit: 255
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
