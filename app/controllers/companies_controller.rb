@@ -46,7 +46,7 @@ class CompaniesController < ApplicationController
     end
 
     def company_params
-      params.require(:company).permit(:about,:address,:user_id,:job_id)
+      params.require(:company).permit(:about,:address,:user_id,:job_id,:logo,:website)
     end
 
   def correct_user

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617033200) do
+ActiveRecord::Schema.define(version: 20150621031423) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -35,12 +35,17 @@ ActiveRecord::Schema.define(version: 20150617033200) do
   end
 
   create_table "companies", force: :cascade do |t|
-    t.text     "about",      limit: 65535
-    t.text     "address",    limit: 65535
-    t.string   "user_id",    limit: 255
-    t.string   "job_id",     limit: 255
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "about",             limit: 65535
+    t.text     "address",           limit: 65535
+    t.string   "user_id",           limit: 255
+    t.string   "job_id",            limit: 255
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 4
+    t.datetime "logo_updated_at"
+    t.string   "website",           limit: 255
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree

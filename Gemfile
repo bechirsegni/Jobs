@@ -11,7 +11,6 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 3.4.1'
-
 gem 'font-awesome-rails', '~> 4.3.0.0'
 gem 'magnific-popup-rails', '~> 0.9.9.1'
 gem 'modernizr-rails', '~> 2.7.1'

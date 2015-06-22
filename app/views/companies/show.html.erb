@@ -1,6 +1,5 @@
 <!-- body-content -->
 <div class="body-content clearfix" >
-
   <!-- top link -->
   <div class="bg-color2 block-section-xs line-bottom">
     <div class="container">
@@ -26,18 +25,20 @@
             <!-- logo company-->
             <div class="row">
               <div class="col-md-8">
-                <a href="company_page.html"><img src="./assets/theme/images/patner/4.png" alt=""></a>
+               <%= image_tag @company.logo.url, width:'200px'%>
               </div>
               <div class="col-md-4">
-                <p class="text-right"><a href="#">Go to our website &raquo;</a></p>
+                <p class="text-right">
+                  <a href="http://<%=@company.website%>">Go to our website &raquo;</a>
+                </p>
               </div>
             </div><!-- end logo company-->
 
             <!-- Bout Company-->
             <h3 class="title" id="cp-about">About</h3>
-            <%= @company.address%>
             <p><%= @company.about%></p>
-
+            <h3 class="title" id="cp-about">Address</h3>
+            <%= @company.address%>
             <!-- Reviews list-->
             <h4>Company Attributes</h4>
             <p></p>

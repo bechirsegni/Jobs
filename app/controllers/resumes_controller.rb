@@ -5,11 +5,11 @@ class ResumesController < ApplicationController
 
   def index
     if params[:skills].present?
-      @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
+      @resumes = Resume.skilled_with(params[:skills]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user).order("id DESC")
     elsif
-      @resumes ||= Resume.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
+      @resumes ||= Resume.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user).order("id DESC")
     else
-      @resumes = Resume.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user,:skills).order("id DESC")
+      @resumes = Resume.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user).order("id DESC")
     end
     @newsletter = Newsletter.new
   end
@@ -19,11 +19,11 @@ class ResumesController < ApplicationController
   end
 
   def new
-    @resume = current_user.resumes.build
+    @resume = current_user.build_resume
   end
 
   def create
-    @resume = current_user.resumes.build(resume_params)
+    @resume = current_user.build_resume(resume_params)
     @resume.cv = params[:resume][:cv]
     if @resume.save!
       redirect_to resumes_path, notice:'Resume was successfully Created'
@@ -58,7 +58,7 @@ class ResumesController < ApplicationController
   private
 
   def set_resume
-    @resume = Resume.find(params[:id])
+    @resume = current_user.resume
   end
 
   def resume_params
@@ -66,7 +66,7 @@ class ResumesController < ApplicationController
   end
 
   def correct_user
-    @resume = current_user.resumes.find_by_id(params[:id])
+    @resume = current_user.resume
     redirect_to resumes_path, notice: "Not authorized to edit this job" if @resume.nil?
   end
 end

@@ -9,25 +9,25 @@
           <div class="relative">
             <i class="fa fa-globe ic-fade-globe"></i>
             <!-- form search -->
-            <form class="form-search-home" method="post" action="job_list.html">
-              <div class="row">
+            <%= form_tag jobs_path, class:'form-search-home', :method => 'get' do %>
+            <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>What</label>
-                    <input class="form-control  input-lg" placeholder="job title, keywords or company name">
+                    <%= text_field_tag :search, params[:search],class:'form-control input-lg', placeholder:'job title, keywords or company name' %>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Where</label>
-                    <input class="form-control input-lg" placeholder="city, province, or region">
+                    <%= text_field_tag :location, params[:location],class:'form-control input-lg',placeholder:'city, province, or region' %>
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <button class="btn btn-t-primary btn-lg btn-theme btn-pill btn-block">Find a Jobs</button>
+                <%= submit_tag "Find Jobs" ,class:'btn btn-t-primary btn-lg btn-theme btn-pill btn-block' %>
               </div>
-            </form> <!-- end form search -->
+            <%end%> <!-- end form search -->
           </div>
         </div>
       </div>
