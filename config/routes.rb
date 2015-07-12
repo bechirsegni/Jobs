@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
   get 'tags/:tag', to: 'jobs#index', as: :tag
   get 'skills/:skill', to: 'resumes#index', as: :skill
 
-  resources :companies
   resources :blogs
   resources :jobs
   resources :resumes
@@ -26,7 +26,6 @@ Rails.application.routes.draw do
     get 'password', to: 'devise/passwords#new'
     get 'account', to: 'devise/registrations#edit'
   end
-
 
   root 'home#index'
 end

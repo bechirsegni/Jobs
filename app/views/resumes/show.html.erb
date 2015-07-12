@@ -33,11 +33,11 @@
                   <p><%=@resume.location%></p>
                   <p>Skills: <%= raw @resume.skills.map(&:name).map { |t| link_to t, skill_path(t) }.join(', ') %></p>
                   <h3 class="resume-sub-title"><span>Work Experience</span></h3>
-                  <h5><%= @resume.experience%></h5>
+                  <h5><%= raw @resume.experience%></h5>
                   <h3 class="resume-sub-title"><span>Education</span></h3>
-                  <h5><%= @resume.education%></h5>
+                  <h5><%=raw  @resume.education%></h5>
                   <h3  class="resume-sub-title"><span>Additional Information</span></h3>
-                  <h5><%= @resume.information%></h5>
+                  <h5><%=raw @resume.information%></h5>
                 </div>
               </div>
             </div><!-- end box item details -->
@@ -46,17 +46,14 @@
             <!-- box affix right -->
             <div class="block-section " id="affix-box">
               <div class="text-right">
-                <p><a href="#" class="btn btn-theme btn-line dark btn-block-xs">Save Resume</a></p>
                 <p>Updated: <%="#{time_ago_in_words(@resume.created_at)} ago"%></p>
-                <p><a href="#modal-apply"  data-toggle="modal" class="btn btn-theme btn-t-primary btn-block-xs">Forward by Email</a></p>
-                <p><a href="#" class="btn btn-theme btn-t-primary btn-block-xs">Contact Bryon</a></p>
-                <p><%= link_to 'Download This Resume', @resume.cv.url, class:'btn btn-theme btn-t-primary btn-block-xs'%></p>
+                <p><a href="mailto:<%=@resume.user.email%>" class="btn btn-theme btn-t-primary btn-block-xs">Contact <%=@resume.user.name%></a></p>
+                <p><%= link_to 'Download This Resume', @resume.cv.url, class:'btn btn-theme btn-t-primary btn-block-xs', target:'_blank'%></p>
                 <p>Share This Resume <span class="space-inline-10"></span> :</p>
                 <p class="share-btns">
-                  <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i></a>
-                  <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i></a>
-                  <a href="#" class="btn btn-danger"><i class="fa fa-google-plus"></i></a>
-                  <a href="#" class="btn btn-warning"><i class="fa fa-pinterest"></i></a>
+                  <a href="https://www.facebook.com/dialog/feed?app_id=134530986736267&link=<%= request.original_url %>&name=<%= @resume.title%>&picture=<%=image_url(@resume.user.photo)%>&redirect_uri=http://facebook.com/" target="_blank" class="btn btn-primary"><i class="fa fa-facebook"></i></a>
+                  <a target="_blank" href="http://twitter.com/home?status=<%=@resume.title%>  &mdash; <%= request.original_url %> via @planetjobs.tn" class="btn btn-info"><i class="fa fa-twitter"></i></a>
+                  <a target="_blank" href="https://plus.google.com/share?url=<%= request.original_url %>" class="btn btn-danger"><i class="fa fa-google-plus"></i></a>
                 </p>
               </div>
             </div><!-- box affix right -->

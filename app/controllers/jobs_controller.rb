@@ -5,11 +5,11 @@ class JobsController < ApplicationController
 
   def index
     if params[:tags].present?
-      @jobs = Job.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
+      @jobs = Job.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
     elsif
-      @jobs ||= Job.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
+      @jobs ||= Job.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
     else
-      @jobs = Job.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags).order("id DESC")
+      @jobs = Job.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
     end
     @newsletter = Newsletter.new
   end
@@ -61,7 +61,7 @@ class JobsController < ApplicationController
   end
 
   def job_params
-    params.require(:job).permit(:title, :description, :company_name,:location,:salary,:experience,:category_id,:tag_list,:company_id)
+    params.require(:job).permit(:title, :description, :company_name,:location,:salary,:experience,:category_id,:tag_list,:address,:url,:apply)
   end
 
   def correct_user

@@ -7,7 +7,8 @@
         <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
         <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
         <li><%= link_to ("<strong>Employers</strong>").html_safe, employers_url%> </li>
-        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url, "data-no-turbolink" => true%> </li>
+        <li><%= link_to ("<strong>Post a Resumes</strong>").html_safe, new_resume_url, "data-no-turbolink" => true%> </li>
       </ul>
       <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-right">
@@ -80,12 +81,13 @@
             <li>
               <%= link_to ("<strong>Login</strong>").html_safe, login_url%>
             </li>
-            <li><%= link_to ("<strong>Login</strong>").html_safe, register_url%></li>
+            <li><%= link_to ("<strong>Resgiter</strong>").html_safe, register_url%></li>
         <%end%>
         <li><%= link_to ("<strong>Home</strong>").html_safe, root_path%> </li>
         <li><%= link_to ("<strong>Find Jobs</strong>").html_safe, jobs_url%> </li>
         <li><%= link_to ("<strong>Find Resumes</strong>").html_safe, resumes_url%> </li>
-        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url%> </li>
+        <li><%= link_to ("<strong>Post a Job</strong>").html_safe, new_job_url, "data-no-turbolink" => true%> </li>
+        <li><%= link_to ("<strong>Post a Resumes</strong>").html_safe, new_resume_url, "data-no-turbolink" => true%> </li>
         <li><%= link_to ("<strong>Employers</strong>").html_safe, employers_url%> </li>
         <li><%= link_to ("<strong>Contact us</strong>").html_safe, contacts_url%> </li>
       </ul>

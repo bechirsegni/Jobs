@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622060837) do
+ActiveRecord::Schema.define(version: 20150712023219) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",              limit: 255
@@ -34,22 +34,21 @@ ActiveRecord::Schema.define(version: 20150622060837) do
     t.datetime "updated_at",             null: false
   end
 
-  create_table "companies", force: :cascade do |t|
-    t.text     "about",             limit: 65535
-    t.text     "address",           limit: 65535
-    t.string   "user_id",           limit: 255
-    t.string   "job_id",            limit: 255
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
-    t.string   "logo_file_name",    limit: 255
-    t.string   "logo_content_type", limit: 255
-    t.integer  "logo_file_size",    limit: 4
-    t.datetime "logo_updated_at"
-    t.string   "website",           limit: 255
-    t.string   "name",              limit: 255
+  create_table "ckeditor_assets", force: :cascade do |t|
+    t.string   "data_file_name",    limit: 255, null: false
+    t.string   "data_content_type", limit: 255
+    t.integer  "data_file_size",    limit: 4
+    t.integer  "assetable_id",      limit: 4
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width",             limit: 4
+    t.integer  "height",            limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  add_index "companies", ["user_id"], name: "index_companies_on_user_id", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "jobs", force: :cascade do |t|
     t.string   "title",        limit: 255
@@ -63,6 +62,9 @@ ActiveRecord::Schema.define(version: 20150622060837) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "company_id",   limit: 4
+    t.string   "url",          limit: 255
+    t.text     "address",      limit: 65535
+    t.string   "apply",        limit: 255
   end
 
   add_index "jobs", ["category_id"], name: "index_jobs_on_category_id", using: :btree

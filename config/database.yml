@@ -48,9 +48,5 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
-  username: drkibodvwiidxz
-  password: EqymORKjR514vUVAkM6MlLOrYD
-  database: heroku pg:psql --app techjobs DATABASE
+  <<: *default
+  database: jobs_production

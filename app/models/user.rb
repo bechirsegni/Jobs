@@ -21,8 +21,6 @@ class User < ActiveRecord::Base
   validates :email, :uniqueness => :true
 
   has_many :jobs , dependent: :destroy
-  has_one :resume , dependent: :destroy
+  has_many :resumes , dependent: :destroy
   has_many :blogs , dependent: :destroy
-  has_many :companies , dependent: :destroy
-
 end

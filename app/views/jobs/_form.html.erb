@@ -19,6 +19,14 @@
                 <label>Company Name</label>
                 <%= f.text_field :company_name, :class => 'form-control' ,placeholder:'Enter Company Name'%>
               </div>
+                <div class="form-group">
+                  <label>Company or Job URL</label>
+                  <%= f.text_field :url, :class => 'form-control' ,placeholder:'Company or Job URL'%>
+                </div>
+                <div class="form-group">
+                  <label>EMAIL</label>
+                  <%= f.text_field :apply, :class => 'form-control' ,placeholder:'apply@jobsplanet.tn'%>
+                </div>
               <div class="form-group">
                 <label>Job title</label>
                 <%= f.text_field :title, :class => 'form-control' ,placeholder:'Enter Job Title'%>
@@ -26,14 +34,17 @@
               <div class="form-group">
                 <label>Job description</label>
                 <div class="color-white-mute"><small>Describe the responsibilities of this job, required work experience, skills, or education.</small></div>
-                <%= f.text_area :description, class:'form-control' ,placeholder:'Enter Job Description'%>
+                <%= f.cktext_area :description, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } } %>
                 <small class="color-white-mute">Formatting Options:    ##heading      *bold*          _italic_          * bulleted list</small>
               </div>
               <div class="form-group">
                 <label>Locations (optional)</label>
                 <%= f.text_field :location, :class => 'form-control' ,placeholder:'Enter Location'%>
               </div>
-
+                <div class="form-group">
+                  <label>Address (Complete address)</label>
+                  <%= f.text_area :address, :class => 'form-control' ,placeholder:'14 ,Rue de Paris , Tunis'%>
+                </div>
                 <div class="form-group">
                   <label>Job Category</label>
                   <%= f.collection_select(:category_id, Category.all, :id, :name, {:prompt => 'Choose a category'}, {class: "form-control"})%>
@@ -45,38 +56,12 @@
                 </div>
 
               <div class="form-group">
-                <label>Salary (optional)</label>
-                <div class="row clearfix">
-                  <div class="col-xs-6">
+                <label>Salary</label>
                     <%= f.text_field :salary, :class => 'form-control' ,placeholder:'Example: 50,000.00'%>
-                  </div>
-                  <div class="col-xs-6">
-                    <select class="form-control">
-                      <option>per hour</option>
-                      <option>per day</option>
-                      <option>per week</option>
-                      <option>per month</option>
-                      <option>per year</option>
-                    </select>
-                  </div>
-                </div>
               </div>
               <div class="form-group">
-                <label>Experience (optional)</label>
-                <div class="row clearfix">
-                  <div class="col-xs-6">
+                <label>Experience </label>
                     <%= f.text_field :experience, :class => 'form-control' ,placeholder:'Example: Accounting'%>
-                  </div>
-                  <div class="col-xs-6">
-                    <select class="form-control">
-                      <option>1 year</option>
-                      <option>2 years</option>
-                      <option>3 years</option>
-                      <option>4 years</option>
-                      <option>5 years</option>
-                    </select>
-                  </div>
-                </div>
               </div>
               <p>Applications will be emailed to: <a href="#"><%= current_user.email%></a> – <a href="#">change email</a></p>
               <div class="form-group ">

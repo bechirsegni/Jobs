@@ -31,16 +31,16 @@
       <h3 class="resume-sub-title"><span>Work Experience</span></h3>
           <div class="form-group">
       <%= f.label :experience%> <br/>
-      <%= f.text_area :experience, :class => 'form-control' ,placeholder:'Copy and Paste From your Resume ...'%>
-            </div>
+      <%= f.cktext_area :experience, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } },placeholder:'Copy and Paste From your Resume ...' %>
+          </div>
       <h3 class="resume-sub-title"><span>Education</span></h3>
       <%= f.label :education%> <br/>
-      <%= f.text_area :education , :class => 'form-control' ,placeholder:'Copy and Paste From your Resume ...'%>
-      <h3  class="resume-sub-title"><span>Additional Information</span></h3>
+      <%= f.cktext_area :education, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } },placeholder:'Copy and Paste From your Resume ...' %>
+          <h3  class="resume-sub-title"><span>Additional Information</span></h3>
           <div class="form-group">
       <%= f.label :information%> <br/>
-      <%= f.text_area :information, :class => 'form-control' ,placeholder:'Describe your self and added the skill you have ...'%>
-            </div>
+      <%= f.cktext_area :information, :as => :ckeditor, :input_html => { :ckeditor => { :height => 400 } },placeholder:'Describe your self and added the skill you have ...' %>
+          </div>
           <div class="form-group">
             <%= f.label :skill_list%> <br/>
             <%= f.text_field :skill_list, :class => 'form-control' ,placeholder:'Added the skills you have separate by commas EX: php, Java'%>

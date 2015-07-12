@@ -26,7 +26,7 @@
                 <div class="blog-img">
                   <%=image_tag blog.photo.url(:medium), class:'img-full'%>
                 </div>
-                <p><%= blog.description %></p>
+                <p><%=h blog.description.html_safe %></p>
                 <p class="blog-links"><%=link_to 'Continue Reading ->', blog, class:'btn btn-theme btn-line soft '%></p>
               </div><!-- end blog item -->
               <% end %>

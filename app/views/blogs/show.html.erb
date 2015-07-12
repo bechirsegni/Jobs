@@ -28,7 +28,7 @@
                 </div>
                 <p>Tags: <%=@blog.tags %></p>
 
-                <p><%= @blog.description%></p>
+                <p><%=raw @blog.description.html_safe%></p>
 
                 <div class="blog-desc-bottom">
                   <!-- tags -->

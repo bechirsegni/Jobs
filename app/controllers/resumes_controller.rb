@@ -1,6 +1,6 @@
 class ResumesController < ApplicationController
   before_filter :set_resume, only: [:show, :edit, :update, :destroy]
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :authenticate_user!
   before_filter :correct_user, only: [:edit, :update, :destroy]
 
   def index
@@ -19,11 +19,11 @@ class ResumesController < ApplicationController
   end
 
   def new
-    @resume = current_user.build_resume
+    @resume = current_user.resumes.build
   end
 
   def create
-    @resume = current_user.build_resume(resume_params)
+    @resume = current_user.resumes.build(resume_params)
     @resume.cv = params[:resume][:cv]
     if @resume.save!
       redirect_to resumes_path, notice:'Resume was successfully Created'
@@ -58,7 +58,7 @@ class ResumesController < ApplicationController
   private
 
   def set_resume
-    @resume = current_user.resume
+    @resume = Resume.find(params[:id])
   end
 
   def resume_params
@@ -66,7 +66,7 @@ class ResumesController < ApplicationController
   end
 
   def correct_user
-    @resume = current_user.resume
+    @resume = current_user.resumes.find_by_id(params[:id])
     redirect_to resumes_path, notice: "Not authorized to edit this job" if @resume.nil?
   end
 end
