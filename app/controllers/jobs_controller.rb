@@ -8,8 +8,8 @@ class JobsController < ApplicationController
       @jobs = Job.tagged_with(params[:tags]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
     elsif
       @jobs ||= Job.search(params[:search]).location(params[:location]).paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
-    else
-      @jobs = Job.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
+    elsif params[:categories].blank?
+      @jobs ||= Job.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:tags,:user).order("id DESC")
     end
     @newsletter = Newsletter.new
   end

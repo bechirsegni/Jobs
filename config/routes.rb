@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   get 'about', to: 'home#about'
   get 'terms', to: 'home#terms'
-  get 'employers', to: 'home#employers'
 
   get 'contacts', to: 'contacts#new'
   post 'contacts', to: 'contacts#create'
@@ -25,6 +24,7 @@ Rails.application.routes.draw do
     get 'logout', to: 'devise/sessions#destroy'
     get 'password', to: 'devise/passwords#new'
     get 'account', to: 'devise/registrations#edit'
+    get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
   end
 
   root 'home#index'

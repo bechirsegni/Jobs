@@ -36,22 +36,53 @@
   <!-- body-content -->
   <div class="body-content clearfix" >
     <!-- box simple static -->
-    <div class="block-section bg-color1">
-      <div class="container">
-        <div class="row text-center">
-          <div class="col-md-4">
-            <h3 class="font-2x "><%=User.all.size%></h3>
-            <h4 class="color-text">Registered Member</h4>
-          </div>
-          <div class="col-md-4">
-            <h3 class="font-2x ">3</h3>
-            <h4 class="color-text">Joblist Posted</h4>
-          </div>
-          <div class="col-md-4">
-            <h3 class="font-2x ">3</h3>
-            <h4 class="color-text">Awesome Resumes</h4>
+    <!-- body-content -->
+    <div class="body-content clearfix" >
+      <!-- block promo -->
+      <div class="block-section bg-color1 line-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center-sm">
+              <h2>Post a Job</h2>
+              <p>Post your jobs directly to JobPlanet in minutes. You'll get quality applicants sent directly to your inbox, no website required.</p>
+              <p><a href="job_post_2.html" class=" btn btn-theme btn-t-primary">Post On JobPlanet</a></p>
+              <p><a href="#">Learn more about posting your jobs on JobPlanet</a></p>
+            </div>
+            <div class="col-md-6 text-center hidden-sm hidden-xs">
+              <%= image_tag 'mac1.png'%>
+            </div>
           </div>
         </div>
       </div>
+       <!-- end block promo -->
+
+
+      <!-- block promo -->
+      <div class="block-section bg-color2 line-bottom">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 text-center hidden-sm hidden-xs">
+              <%= image_tag 'mac2.png' %>
+            </div>
+            <div class="col-md-6 text-center-sm">
+              <h2>Resume Search</h2>
+              <p>Post your jobs directly to JobPlanet in minutes. You'll get quality applicants sent directly to your inbox, no website required.</p>
+              <p><a href="resume_list.html" class=" btn btn-theme btn-t-primary">Find Resumes</a></p>
+              <p><a href="#">Learn more about JobPlanet Resume</a></p>
+            </div>
+          </div>
+        </div>
+      </div><!-- end block promo -->
+
+      <!-- block bottom -->
+      <div class="block-section bg-color1">
+        <div class="container text-center">
+          <strong class="text-uppercase">support</strong>
+          <h2 >Any questions?</h2>
+          <div class="white-space-20"></div>
+          <%= link_to 'Contact Us', contacts_path,class:'btn btn-t-primary  btn-theme'%>
+        </div>
+      </div><!-- end block bottom -->
+
     </div><!-- end box simple static -->
   </div><!--end body-content -->

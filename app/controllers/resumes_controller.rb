@@ -12,6 +12,7 @@ class ResumesController < ApplicationController
       @resumes = Resume.all.paginate(:page => params[:page], :per_page => 5).page(params[:page]).includes(:user).order("id DESC")
     end
     @newsletter = Newsletter.new
+    @jobs = Job
   end
 
   def show

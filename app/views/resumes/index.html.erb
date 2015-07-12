@@ -2,30 +2,22 @@
 <%= render 'resumes/parts/search'%>
   <!-- body-content -->
   <div class="body-content clearfix" >
-
     <div class="bg-color2">
       <div class="container">
         <div class="row">
           <div class="col-md-9">
-
             <!-- box listing  -->
             <div class="block-section-sm box-list-area">
-
               <!-- top desc -->
               <div class="row hidden-xs">
-                <div class="col-sm-6 ">
-                  <p><strong class="color-black">PHP resumes in United States</strong></p>
-                </div>
-                <div class="col-sm-6">
+                <div class="col-sm-12">
                   <p class="text-right">
                     5 Resumes of <%= @resumes.count%>
                   </p>
                 </div>
               </div><!-- end top desc -->
-
               <!-- listing -->
               <div class="box-list">
-
                 <!-- item listing  -->
                 <% @resumes.each do |r|%>
                 <div class="item">
@@ -48,9 +40,7 @@
                   </div>
                 </div><!-- end item listing  -->
                     <%end%>
-
               </div><!-- end  listing -->
-
               <!-- form get alert  -->
               <div class="get_alert">
                 <h4>Get new resumes for this search by email</h4>
@@ -80,18 +70,14 @@
               <nav >
                 <ul class="pagination pagination-theme  no-margin">
                   <li>
-                    <%= will_paginate @jobs, renderer: BootstrapPagination::Rails, class:'pagination pagination-theme pagination-lg' %>
+                    <%= will_paginate @resumes, renderer: BootstrapPagination::Rails, class:'pagination pagination-theme pagination-lg' %>
                   </li>
                 </ul>
               </nav><!-- pagination -->
-
             </div><!-- end  box listing  -->
-
-
           </div>
           <div class="col-md-3">
             <div class="block-section-sm side-right">
-
               <!-- filter   -->
               <div class="row">
                 <div class="col-xs-6">
@@ -115,182 +101,46 @@
                     </ul>
                   </div>
                 </div>
-
-                <h5 class="font-bold  margin-b-20"  ><a href="#s_collapse_5" data-toggle="collapse" >Years of work experience <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
-                <div class="collapse in" id='s_collapse_5'>
-                  <div class="list-area">
-                    <ul class="list-unstyled ">
-                      <li>
-                        <a  href="#" >Less than 1 year </a> (558)
-                      </li>
-                      <li>
-                        <a  href="#" >1-2 years </a> (438)
-                      </li>
-                      <li>
-                        <a  href="#" >3-5 years </a> (313)
-                      </li>
-                      <li>
-                        <a  href="#" >6-10 years</a> (169)
-                      </li>
-                      <li>
-                        <a  href="#" >More than 10 years  </a> (156)
-                      </li>
-                    </ul>
-
-                  </div>
-                </div>
-
-
-                <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_2" data-toggle="collapse">Job Titles <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i> </a></h5>
+                <h5 class="font-bold  margin-b-20"><a href="#s_collapse_2" data-toggle="collapse" >Recent Jobs <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a>  </h5>
                 <div class="collapse in" id="s_collapse_2">
                   <div class="list-area">
                     <ul class="list-unstyled ">
-                      <li>
-                        <a  href="#" >Software Engineer</a> (558)
-                      </li>
-                      <li>
-                        <a  href="#" >PHP Developer</a> (438)
-                      </li>
-                      <li>
-                        <a  href="#" >Software Engineer </a> (313)
-                      </li>
-                      <li>
-                        <a  href="#" >Senior Software Engineer </a> (169)
-                      </li>
-                      <li>
-                        <a  href="#" >Front End Developer </a> (156)
-                      </li>
-                      <li>
-                        <a  href="#" >More ... </a>
-                      </li>
+                      <% @jobs.limit(5).each do |job|%>
+                          <li>
+                            <%=link_to job.title,job %>
+                          </li>
+                      <%end%>
                     </ul>
-
                   </div>
                 </div>
-
-
-                <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_3" data-toggle="collapse" >Companies <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i> </a> </h5>
+                <h5 class="font-bold  margin-b-20"><a href="#s_collapse_3" data-toggle="collapse" >Recent Jobs by Companies <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
                 <div class="collapse in" id="s_collapse_3">
                   <div class="list-area">
                     <ul class="list-unstyled ">
-                      <li>
-                        <a  href="#" >Self Employed</a> (558)
-                      </li>
-                      <li>
-                        <a  href="#" >Freelance</a> (438)
-                      </li>
-                      <li>
-                        <a  href="#" >IBM </a> (313)
-                      </li>
-                      <li>
-                        <a  href="#" >Bank of America </a> (169)
-                      </li>
-                      <li>
-                        <a  href="#" >The University of Texas at Austin </a> (156)
-                      </li>
-                      <li>
-                        <a  href="#" >More ... </a>
-                      </li>
+                      <%@jobs.limit(5).each do |company|%>
+                          <li>
+                            <%=link_to company.company_name,company%>
+                          </li>
+                      <%end%>
                     </ul>
-
                   </div>
                 </div>
-
-
-                <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_4" class="collapsed" data-toggle="collapse" >Location <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
+                <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_4" data-toggle="collapse"  >Recent Jobs by Location  <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i> </a></h5>
                 <div class="collapse" id='s_collapse_4'>
                   <div class="list-area">
                     <ul class="list-unstyled ">
-                      <li>
-                        <a  href="#" >New York, NY </a> (558)
-                      </li>
-                      <li>
-                        <a  href="#" >San Francisco, CA </a> (438)
-                      </li>
-                      <li>
-                        <a  href="#" >Washington, DC </a> (313)
-                      </li>
-                      <li>
-                        <a  href="#" >Chicago, IL</a> (169)
-                      </li>
-                      <li>
-                        <a  href="#" >Austin, TX  </a> (156)
-                      </li>
-                      <li>
-                        <a  href="#" >More ... </a>
-                      </li>
+                      <%@jobs.limit(5).each do |loc|%>
+                          <li>
+                            <%=link_to loc.location, loc%>
+                          </li>
+                      <%end%>
                     </ul>
-
                   </div>
                 </div>
-
               </div><!-- end filter   -->
             </div>
-
-
           </div>
         </div>
       </div>
     </div>
-
-
-
-    <!-- modal need login -->
-    <div class="modal fade" id="need-login">
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-
-          <div class="modal-header text-center">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" >You must login to save jobs</h4>
-          </div>
-          <div class="modal-footer text-center">
-            <a href="#" class="btn btn-default btn-theme" >Login</a>
-            <a href="#"  class="btn btn-success btn-theme">Create account (it's free)</a>
-          </div>
-
-        </div>
-      </div>
-    </div><!-- end modal  need login -->
-
-
-    <!-- modal need login -->
-    <div class="modal fade" id="modal-email">
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-          <form>
-            <div class="modal-header ">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" >Send this job to yourself or a friend:</h4>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>From my email address</label>
-                <input type="email" class="form-control "  placeholder="Enter Email">
-              </div>
-              <div class="form-group">
-                <label>To email address</label>
-                <input type="email" class="form-control "  placeholder="Enter Email">
-              </div>
-
-              <div class="form-group">
-                <label>Comment (optional)</label>
-                <textarea class="form-control" rows="6" placeholder="Something Comment"></textarea>
-              </div>
-              <div class="checkbox flat-checkbox">
-                <label>
-                  <input type="checkbox">
-                  <span class="fa fa-check"></span>
-                  Send a copy to my email address?
-                </label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default btn-theme" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success btn-theme">Send</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div><!-- end modal  need login -->
   </div><!--end body-content -->

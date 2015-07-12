@@ -21,101 +21,39 @@
           </ul>
         </div>
       </div>
-      <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_5" data-toggle="collapse" >Job Type <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
-      <div class="collapse in" id='s_collapse_5'>
-        <div class="list-area">
-          <ul class="list-unstyled ">
-            <li>
-              <a  href="#" >Full-time </a> (558)
-            </li>
-            <li>
-              <a  href="#" >Part-time </a> (438)
-            </li>
-            <li>
-              <a  href="#" >Contract </a> (313)
-            </li>
-            <li>
-              <a  href="#" >Internship</a> (169)
-            </li>
-            <li>
-              <a  href="#" >Temporary  </a> (156)
-            </li>
-          </ul>
-        </div>
-      </div>
-      <h5 class="font-bold  margin-b-20"><a href="#s_collapse_2" data-toggle="collapse" >Title <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a>  </h5>
+      <h5 class="font-bold  margin-b-20"><a href="#s_collapse_2" data-toggle="collapse" >Recent Jobs <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a>  </h5>
       <div class="collapse in" id="s_collapse_2">
         <div class="list-area">
           <ul class="list-unstyled ">
+            <% @jobs.limit(5).each do |job|%>
             <li>
-              <a  href="#" >web developer</a> (558)
+              <%=link_to job.title,job %>
             </li>
-            <li>
-              <a  href="#" >PHP Developer</a> (438)
-            </li>
-            <li>
-              <a  href="#" >Software Engineer </a> (313)
-            </li>
-            <li>
-              <a  href="#" >Senior Software Engineer </a> (169)
-            </li>
-            <li>
-              <a  href="#" >Front End Developer </a> (156)
-            </li>
-            <li>
-              <a  href="#" >More ... </a>
-            </li>
+            <%end%>
           </ul>
-
         </div>
       </div>
-      <h5 class="font-bold  margin-b-20"><a href="#s_collapse_3" data-toggle="collapse" >Company <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
+      <h5 class="font-bold  margin-b-20"><a href="#s_collapse_3" data-toggle="collapse" >Recent Jobs by Companies <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i></a> </h5>
       <div class="collapse in" id="s_collapse_3">
         <div class="list-area">
           <ul class="list-unstyled ">
+            <%@jobs.limit(5).each do |company|%>
             <li>
-              <a  href="#" >Unlisted Company</a> (558)
+              <%=link_to company.company_name,company%>
             </li>
-            <li>
-              <a  href="#" >CyberCoders</a> (438)
-            </li>
-            <li>
-              <a  href="#" >Smith & Keller </a> (313)
-            </li>
-            <li>
-              <a  href="#" >Robert Half Technology </a> (169)
-            </li>
-            <li>
-              <a  href="#" >Jobspring Partners </a> (156)
-            </li>
-            <li>
-              <a  href="#" >More ... </a>
-            </li>
+            <%end%>
           </ul>
         </div>
       </div>
-      <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_4" data-toggle="collapse" class="collapsed" >Location  <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i> </a></h5>
+      <h5 class="font-bold  margin-b-20" ><a href="#s_collapse_4" data-toggle="collapse"  >Recent Jobs by Location  <i class="fa ic-arrow-toogle fa-angle-right pull-right"></i> </a></h5>
       <div class="collapse" id='s_collapse_4'>
         <div class="list-area">
           <ul class="list-unstyled ">
+            <%@jobs.limit(5).each do |loc|%>
             <li>
-              <a  href="#" >New York, NY </a> (558)
+              <%=link_to loc.location, loc%>
             </li>
-            <li>
-              <a  href="#" >San Francisco, CA </a> (438)
-            </li>
-            <li>
-              <a  href="#" >Washington, DC </a> (313)
-            </li>
-            <li>
-              <a  href="#" >Chicago, IL</a> (169)
-            </li>
-            <li>
-              <a  href="#" >Austin, TX  </a> (156)
-            </li>
-            <li>
-              <a  href="#" >More ... </a>
-            </li>
+            <%end%>
           </ul>
         </div>
       </div>

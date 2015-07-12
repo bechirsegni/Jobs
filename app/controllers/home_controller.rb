@@ -2,7 +2,6 @@ class HomeController < ApplicationController
 
 
   def index
-
   end
 
   def about
@@ -12,9 +11,6 @@ class HomeController < ApplicationController
   end
 
   def contact
-  end
-
-  def employers
   end
 
 end
