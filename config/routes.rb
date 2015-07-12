@@ -24,7 +24,6 @@ Rails.application.routes.draw do
     get 'logout', to: 'devise/sessions#destroy'
     get 'password', to: 'devise/passwords#new'
     get 'account', to: 'devise/registrations#edit'
-    get 'users/profile', :to => 'devise/registrations#edit', :as => :user_root
   end
 
   root 'home#index'
